@@ -4,8 +4,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include "libft/libft.h"
 
 # include <stdio.h>
+
+int		ft_printf(char *format, ...);
 
 // You have to manage the following conversions: diouxX with the following flags: hh, h, l and ll.
 // You have to manage the following conversion: f with the following flags: l and L.
