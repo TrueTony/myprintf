@@ -21,26 +21,34 @@ void	find_flags(char *str)
 	}
 }
 */
-int		ft_printf(char *format, ...)
+void		ft_printf(char *format, ...)
 {
 	va_list	ap;
 	va_start(ap, format);
+	int 	x;
+	char	*s;
 
 	while (*format)
 	{
 		ft_putchar(*format);
-		while (*format != '%')
+
+		if (*format == '%')
 		{
 			format++;
 			if (*format == 'd')
 			{
-				int x;
-
 				x = va_arg(ap, int);
 				ft_putnbr(x);
 			}
+			if (*format == 's')
+			{
+				s = va_arg(ap, char*);
+				ft_putstr(s);
+			}
+
 		}
+
 		format++;
 	}
-	return (0);
+	va_end (ap);
 }
