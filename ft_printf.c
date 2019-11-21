@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 16:45:26 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/18 20:16:23 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/11/21 21:32:52 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,34 @@ void	fork(char *str)
 	}
 }
 */
+
+
+
 void		ft_printf(char *format, ...)
 {
+	t_printf	*list;
 	va_list	ap;
 	va_start(ap, format);
-	int 	x;
-	char	*s;
+	//int				x;
+	unsigned	int ux;
+	//char			*s;
 
-	x = 0;
+	//x = 0;
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
+			list = newlist_with_printf();
+			//printf("%c %i %i %s %c", list->flag, list->width, list->presicion, list->length, list->type);
+			format = flag(format, list);
+			if (list->type == 'c')
+			{
+				ux = va_arg(ap, int);
+				c(list, ux);
+			}
+
+/*
 			if (*format == 'd' || *format == 'i')
 			{
 				x = va_arg(ap, int);
@@ -41,7 +56,7 @@ void		ft_printf(char *format, ...)
 			}
 			if (*format == 'c')
 			{
-				x = va_arg(ap, int);
+				ux = va_arg(ap, int);
 				ft_putchar(x);
 			}
 			if (*format == 's')
@@ -49,10 +64,12 @@ void		ft_printf(char *format, ...)
 				s = va_arg(ap, char*);
 				ft_putstr(s);
 			}
+*/
 		}
 		else
 			ft_putchar(*format);
 		format++;
 	}
-	va_end (ap);
+	//printf("%c %i %i %s %c", list->flag, list->width, list->presicion, list->length, list->type);
+	//va_end (ap);
 }
