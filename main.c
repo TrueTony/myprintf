@@ -4,6 +4,7 @@ int		main(void)
 {
 	//char *s = "Hello world!";
 	char c = 'Z';
+	char c2 = 'Z';
 	//int	x = -27;
 
 
@@ -22,6 +23,6 @@ int		main(void)
 
 	//ft_printf("%-12.5llc");
 	//printf("%5c\n", c);
-	ft_printf("%-5c\n", c);
+	ft_printf("wow eto c=%c, a eto c2=%c\n", c, c2);
 	return (0);
 }

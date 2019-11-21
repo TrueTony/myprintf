@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 17:47:52 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/21 21:33:53 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/11/21 21:47:45 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,5 @@ char	*type(char *format, t_printf *list)
 	{
 		list->type = format[0];
 	}
-	format++;
 	return (format);
 }
