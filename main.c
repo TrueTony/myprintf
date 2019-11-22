@@ -3,9 +3,10 @@
 int		main(void)
 {
 	//char *s = "Hello world!";
-	char c = 'Z';
+	//char c = 'Z';
 	//char c2 = 'Z';
 	//int	x = -27;
+	char *str = "hello, world";
 
 
 	//printf("%03c\n\n", c);
@@ -22,10 +23,21 @@ int		main(void)
 	//printf("%3.3c\n", c);
 
 	//ft_printf("%-12.5llc");
-	ft_printf("%-5casd\n", c);
+	//ft_printf("%5casd\n", c);
+	//ft_printf("%05casd\n", c);
+	//ft_printf("%-5casd\n", c);
 
 	//printf("%#d\n", 123);
 	//printf("%#d\n", -123);
+
+	printf(":%s:\n", str);
+	printf(":%10s:\n", str);
+	printf(":%.10s:\n", str);
+	printf(":%-10s:\n", str);
+	printf(":%.15s:\n", str);
+	printf(":%-15s:\n", str);
+	printf(":%15.10s:\n", str);
+	printf(":%-15.10s:\n", str);
 
 	//ft_printf("wow eto c=%c, a eto c2=%c\n", c, c2);
 	return (0);

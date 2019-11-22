@@ -6,21 +6,11 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:02:52 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/21 19:57:28 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/11/22 17:51:23 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-void	c_width_zero(t_printf *list, unsigned int c)
-{
-	while (list->width > 1)
-	{
-		ft_putchar('0');
-		list->width--;
-	}
-	ft_putchar(c);
-}
 
 void	c_width_minus(t_printf *list, unsigned int c)
 {
@@ -34,15 +24,18 @@ void	c_width_minus(t_printf *list, unsigned int c)
 
 void	c_width(t_printf *list, unsigned int c)
 {
+	char tmp;
+
+	tmp = ' ';
 	if (list->flag == '-')
 		c_width_minus(list, c);
-	else if (list->flag == '0')
-		c_width_zero(list, c);
 	else
 	{
+		if (list->flag == '0')
+			tmp = '0';
 		while (list->width > 1)
 		{
-			ft_putchar(' ');
+			ft_putchar(tmp);
 			list->width--;
 		}
 		ft_putchar(c);
