@@ -12,47 +12,38 @@
 
 #include "printf.h"
 
-void	c_width_zero(t_printf *list, unsigned int c)
-{
-	while (list->width > 1)
-	{
-		ft_putchar('0');
-		list->width--;
-	}
-	ft_putchar(c);
-}
-
-void	c_width_minus(t_printf *list, unsigned int c)
-{
-	ft_putchar(c);
-	while (list->width > 1)
-	{
-		ft_putchar(' ');
-		list->width--;
-	}
-}
-
-void	c_width(t_printf *list, unsigned int c)
-{
-	if (list->flag == '-')
-		c_width_minus(list, c);
-	else if (list->flag == '0')
-		c_width_zero(list, c);
-	else
-	{
-		while (list->width > 1)
-		{
-			ft_putchar(' ');
-			list->width--;
-		}
-		ft_putchar(c);
-	}
-}
-
 void	c(t_printf *list, unsigned int c)
 {
-	if (list->width)
-		c_width(list, c);
+	if (list->width > 1)
+	{
+		if (list->flag == '-')
+		{
+			ft_putchar(c);
+			while (list->width > 2)
+			{
+				ft_putchar(' ');
+				list->width--;
+			}
+		}
+		else if (list->flag == '0')
+		{
+			while (list->width > 2)
+			{
+				ft_putchar('0');
+				list->width--;
+			}
+			ft_putchar(c);
+		}
+		else
+		{
+			while (list->width > 2)
+			{
+				ft_putchar(' ');
+				list->width--;
+			}
+			ft_putchar(c);
+		}
+	}
 	else
 		ft_putchar(c);
 }
