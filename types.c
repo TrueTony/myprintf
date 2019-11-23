@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:02:52 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/22 17:51:23 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/11/23 15:43:07 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	c_width(t_printf *list, unsigned int c)
 	tmp = ' ';
 	if (list->flag == '-')
 		c_width_minus(list, c);
+	/*
 	else
 	{
 		if (list->flag == '0')
@@ -39,7 +40,7 @@ void	c_width(t_printf *list, unsigned int c)
 			list->width--;
 		}
 		ft_putchar(c);
-	}
+	*/
 }
 
 void	c(t_printf *list, unsigned int c)

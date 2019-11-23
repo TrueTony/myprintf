@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 16:45:26 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/21 21:32:52 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/11/23 15:44:56 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		ft_printf(char *format, ...)
 	va_start(ap, format);
 	//int				x;
 	unsigned	int ux;
-	//char			*s;
+	char			*s;
 
 	//x = 0;
 	while (*format)
@@ -46,6 +46,12 @@ void		ft_printf(char *format, ...)
 			{
 				ux = va_arg(ap, int);
 				c(list, ux);
+			}
+
+			if (list->type == 's' || list->type == 'S')
+			{
+				s = va_arg(ap, char*);
+				str(list, s);
 			}
 
 /*

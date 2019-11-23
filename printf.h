@@ -11,10 +11,12 @@
 typedef	struct s_printf
 {
 	char	flag;
-	int		width;
-	int		presicion;
+	size_t	width;
+	size_t	presicion;
 	char	*length;
 	char	type;
+	size_t	widthofline;
+	size_t	widthofcontent;
 	//void	arg; (?)
 }				t_printf;
 
@@ -28,5 +30,6 @@ char		*type(char *format, t_printf *list);
 void		c(t_printf *list, unsigned int c);
 void		c_width(t_printf *list, unsigned int c);
 void		c_width_minus(t_printf *list, unsigned int c);
+void		str(t_printf *list, char *str);
 
 #endif
