@@ -2,11 +2,11 @@
 
 int		main(void)
 {
-	char c = 'Z';
+	//char c = 'Z';
 	//char c2 = 'Z';
-	//int	x = -27;
-	char *str = "hello, world";
-
+	int	x = -27;
+	//char *str = "hello, world";
+/*
 	printf(":%c:\n", c);
 	printf(":%3c:\n", c);
 	printf(":%-3c:\n", c);
@@ -42,7 +42,9 @@ int		main(void)
 	ft_printf(":%15.10s:\n", str);
 	ft_printf(":%-15.10s:\n", str);
 	ft_printf(":%-12.20s:\n", str);
+*/
 
+	printf(":%d:\n", x);
 
 	//ft_printf("wow eto c=%c, a eto c2=%c\n", c, c2);
 	return (0);
