@@ -24,9 +24,9 @@ void	c_width_minus(t_printf *list, unsigned int c)
 
 void	c_width(t_printf *list, unsigned int c)
 {
-	char tmp;
+	//char tmp;
 
-	tmp = ' ';
+	//tmp = ' ';
 	if (list->flag == '-')
 		c_width_minus(list, c);
 	/*

@@ -14,18 +14,21 @@
 
 void	str(t_printf *list, char *str)
 {
-	//printf("!%s\n", str);
 	if (list->width > ft_strlen(str))
 		list->widthofline = list->width;
 	else
-		list->widthofline = ft_strlen(str);
+		if (list->presicion < ft_strlen(str) && list->presicion > 0)
+			list->widthofline = list->presicion;
+		else
+			list->widthofline = ft_strlen(str);
 	if (list->presicion < ft_strlen(str) && list->presicion > 0)
 		list->widthofcontent = list->presicion;
 	else
 		list->widthofcontent = ft_strlen(str);
-	while (list->widthofline)
+
+	if ((list->flag == '-') && (list->width > list->widthofcontent))
 	{
-		if (list->flag == '-')
+		while (list->widthofline > 0)
 		{
 			while (list->widthofcontent)
 			{
@@ -37,7 +40,10 @@ void	str(t_printf *list, char *str)
 			ft_putchar(' ');
 			list->widthofline--;
 		}
-		else
+	}
+	else
+	{
+		while (list->widthofline > 0)
 		{
 			while (list->widthofline > list->widthofcontent)
 			{

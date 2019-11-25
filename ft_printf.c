@@ -11,18 +11,6 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-/*
-void	fork(char *str)
-{
-	if (*str == 'd')
-	{
-		int	x;
-
-	}
-}
-*/
-
-
 
 void		ft_printf(char *format, ...)
 {
@@ -40,8 +28,8 @@ void		ft_printf(char *format, ...)
 		{
 			format++;
 			list = newlist_with_printf();
-			//printf("%c %i %i %s %c", list->flag, list->width, list->presicion, list->length, list->type);
 			format = flag(format, list);
+			//printf("%c %I64i %I64i %s %c\n", list->flag, list->width, list->presicion, list->length, list->type);
 			if (list->type == 'c')
 			{
 				ux = va_arg(ap, int);
