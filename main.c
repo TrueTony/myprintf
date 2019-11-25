@@ -17,6 +17,7 @@ int		main(void)
 	ft_printf(":%3c:\n", c);
 	ft_printf(":%-3c:\n", c);
 
+	printf("\n");
 
 	printf(":%s:\n", str);
 	printf(":%10s:\n", str);

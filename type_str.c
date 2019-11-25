@@ -12,6 +12,37 @@
 
 #include "printf.h"
 
+void	str_print_with_minus(t_printf *list, char *str)
+{
+	while (list->widthofline > 0)
+	{
+		while (list->widthofcontent)
+		{
+			ft_putchar(*str);
+			str++;
+			list->widthofline--;
+			list->widthofcontent--;
+		}
+		ft_putchar(' ');
+		list->widthofline--;
+	}
+}
+
+void	str_print_without_minus(t_printf *list, char *str)
+{
+	while (list->widthofline > 0)
+	{
+		while (list->widthofline > list->widthofcontent)
+		{
+			ft_putchar(' ');
+			list->widthofline--;
+		}
+		ft_putchar(*str);
+		str++;
+		list->widthofline--;
+	}
+}
+
 void	str(t_printf *list, char *str)
 {
 	if (list->width > ft_strlen(str))
@@ -25,34 +56,8 @@ void	str(t_printf *list, char *str)
 		list->widthofcontent = list->presicion;
 	else
 		list->widthofcontent = ft_strlen(str);
-
 	if ((list->flag == '-') && (list->width > list->widthofcontent))
-	{
-		while (list->widthofline > 0)
-		{
-			while (list->widthofcontent)
-			{
-				ft_putchar(*str);
-				str++;
-				list->widthofline--;
-				list->widthofcontent--;
-			}
-			ft_putchar(' ');
-			list->widthofline--;
-		}
-	}
+		str_print_with_minus(list, str);
 	else
-	{
-		while (list->widthofline > 0)
-		{
-			while (list->widthofline > list->widthofcontent)
-			{
-				ft_putchar(' ');
-				list->widthofline--;
-			}
-			ft_putchar(*str);
-			str++;
-			list->widthofline--;
-		}
-	}
+		str_print_without_minus(list, str);
 }
