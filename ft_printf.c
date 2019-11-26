@@ -19,6 +19,7 @@ void		ft_printf(char *format, ...)
 	va_start(ap, format);
 	//int				x;
 	unsigned	int ux;
+	long long		lx;
 	char			*s;
 
 	//x = 0;
@@ -41,7 +42,11 @@ void		ft_printf(char *format, ...)
 				s = va_arg(ap, char*);
 				str(list, s);
 			}
-
+			if (list->type == 'd' || list->type == 'i')
+			{
+				lx = va_arg(ap, long long);
+				d_and_i(list, lx);
+			}
 /*
 			if (*format == 'd' || *format == 'i')
 			{

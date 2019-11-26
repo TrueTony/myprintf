@@ -1,1 +1,1 @@
-gcc -g -Wall -Wextra -Werror find_args_of_list.c ft_printf.c lists.c type_str.c types.c main.c
+gcc -g -Wall -Wextra -Werror find_args_of_list.c ft_printf.c lists.c type_str.c type_d_and_i.c types.c main.c

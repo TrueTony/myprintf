@@ -33,5 +33,7 @@ void			c_width_minus(t_printf *list, unsigned int c);
 void			str(t_printf *list, char *str);
 void			str_print_with_minus(t_printf *list, char *str);
 void			str_print_without_minus(t_printf *list, char *str);
+void			d_and_i(t_printf *list, long long x);
+size_t			ft_len_of_int(long long i);
 
 #endif
