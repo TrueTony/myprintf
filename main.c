@@ -44,20 +44,20 @@ int		main(void)
 	ft_printf(":%-12.20s:\n", str);
 */
 
-	printf(":%d:\n", x);
+	//printf(":%d:\n", x);
 	printf(":%5d:\n", x);
-	printf(":%+d:\n", x);
-	printf(":%+5d:\n", x);
-	printf(":%-5d:\n", x);
-	printf(":%05d:\n", x);
+	//printf(":%+d:\n", x);
+	//printf(":%+5d:\n", x);
+	//printf(":%-5d:\n", x);
+	//printf(":%05d:\n", x);
 
 	printf("\n");
-	ft_printf(":%d:\n", x);
+	//ft_printf(":%d:\n", x);
 	ft_printf(":%5d:\n", x);
-	ft_printf(":%+d:\n", x);
-	ft_printf(":%+5d:\n", x);
-	ft_printf(":%-5d:\n", x);
-	ft_printf(":%05d:\n", x);
+	//ft_printf(":%+d:\n", x);
+	//ft_printf(":%+5d:\n", x);
+	//ft_printf(":%-5d:\n", x);
+	//ft_printf(":%05d:\n", x);
 
 	//ft_printf("wow eto c=%c, a eto c2=%c\n", c, c2);
 	return (0);
