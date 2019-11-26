@@ -47,23 +47,6 @@ void		ft_printf(char *format, ...)
 				lx = va_arg(ap, long long);
 				d_and_i(list, lx);
 			}
-/*
-			if (*format == 'd' || *format == 'i')
-			{
-				x = va_arg(ap, int);
-				ft_putnbr(x);
-			}
-			if (*format == 'c')
-			{
-				ux = va_arg(ap, int);
-				ft_putchar(x);
-			}
-			if (*format == 's')
-			{
-				s = va_arg(ap, char*);
-				ft_putstr(s);
-			}
-*/
 		}
 		else
 			ft_putchar(*format);

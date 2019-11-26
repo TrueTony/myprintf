@@ -43,7 +43,6 @@ void	di_print_with_minus(t_printf *list, long long x)
 
 void	presicion_over_len(t_printf *list, long long x)
 {
-	//printf("\nright\n");
 	if (list->flag == '+' && (int)x >= 0)
 	{
 		ft_putchar('+');
@@ -54,10 +53,8 @@ void	presicion_over_len(t_printf *list, long long x)
 	{
 		ft_putchar('-');
 		x *= -1;
-		//list->widthofcontent--;
 		list->widthofline--;
 	}
-
 	//printf("\n%li\n", list->widthofline);
 	//printf("%li\n", list->widthofcontent);
 	while (list->widthofcontent > list->widthofline)
@@ -65,7 +62,6 @@ void	presicion_over_len(t_printf *list, long long x)
 		ft_putchar('0');
 		list->widthofcontent--;
 	}
-
 	ft_putstr(ft_itoa(x));
 }
 
@@ -125,6 +121,4 @@ void	d_and_i(t_printf *list, long long x)
 		di_print_with_minus(list, x);
 	else
 		di_print_without_minus(list, x);
-	//printf("%li\n", x);
-
 }
