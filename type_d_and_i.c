@@ -10,7 +10,7 @@ size_t	ft_len_of_int(long long i)
 		i *= -1;
 		res++;
 	}
-	while (i > 10)
+	while ((int)i > 10)
 	{
 		res++;
 		i /=10;
@@ -43,14 +43,21 @@ void	di_print_with_minus(t_printf *list, long long x)
 
 void	di_print_without_minus(t_printf *list, long long x)
 {
-	printf("%I64i\n", list->widthofline);
-	printf("%I64i\n", list->widthofcontent);
 	while (list->widthofline > 0)
 	{
 		while (list->widthofline > list->widthofcontent)
 		{
 			if (list->flag == '0')
+			{
+				if ((int)x < 0)
+				{
+					ft_putchar('-');
+					x *= -1;
+					list->widthofcontent--;
+					list->widthofline--;
+				}
 				ft_putchar('0');
+			}
 			else
 				ft_putchar(' ');
 			list->widthofline--;
@@ -61,6 +68,8 @@ void	di_print_without_minus(t_printf *list, long long x)
 			list->widthofline--;
 			list->widthofcontent--;
 		}
+		//printf("%li\n", list->widthofline);
+		//printf("%li\n", list->widthofcontent);
 		ft_putstr(ft_itoa(x));
 		list->widthofline -= ft_len_of_int(x);
 		list->widthofcontent -= ft_len_of_int(x);
@@ -84,7 +93,7 @@ void	d_and_i(t_printf *list, long long x)
 		list->widthofcontent = list->presicion;
 	else
 		list->widthofcontent = ft_len_of_int(x);
-	if ((list->flag == '+' && (int)x >= 0) || (int)x < 0)
+	if (list->flag == '+' && (int)x >= 0)
 		list->widthofcontent++;
 	if ((list->flag == '-') && (list->width > list->widthofcontent))
 		di_print_with_minus(list, x);
