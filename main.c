@@ -51,13 +51,26 @@ int		main(void)
 	printf(":%-5d:\n", x);
 	printf(":%05d:\n", x);
 
+	printf(":%.1d:\n", x);
+	printf(":%.2d:\n", x);
+	printf(":%.3d:\n", x);
+	printf(":%.5d:\n", x);
+	printf(":%+.5d:\n", x);
+
 	printf("\n");
+
 	ft_printf(":%d:\n", x);
 	ft_printf(":%5d:\n", x);
 	ft_printf(":%+d:\n", x);
 	ft_printf(":%+5d:\n", x);
 	ft_printf(":%-5d:\n", x);
 	ft_printf(":%05d:\n", x);
+
+	ft_printf(":%.1d:\n", x);
+	ft_printf(":%.2d:\n", x);
+	ft_printf(":%.3d:\n", x);
+	ft_printf(":%.5d:\n", x);
+	ft_printf(":%+.5d:\n", x);
 
 	//ft_printf("wow eto c=%c, a eto c2=%c\n", c, c2);
 	return (0);

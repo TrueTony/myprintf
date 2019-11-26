@@ -41,39 +41,63 @@ void	di_print_with_minus(t_printf *list, long long x)
 	}
 }
 
+void	presicion_over_len(t_printf *list, long long x)
+{
+	//printf("\nright\n");
+	if (list->flag == '+' && (int)x >= 0)
+	{
+		ft_putchar('+');
+		list->widthofline--;
+		list->widthofcontent--;
+	}
+	if ((int)x < 0)
+	{
+		ft_putchar('-');
+		x *= -1;
+		//list->widthofcontent--;
+		list->widthofline--;
+	}
+
+	//printf("\n%li\n", list->widthofline);
+	//printf("%li\n", list->widthofcontent);
+	while (list->widthofcontent > list->widthofline)
+	{
+		ft_putchar('0');
+		list->widthofcontent--;
+	}
+
+	ft_putstr(ft_itoa(x));
+}
+
 void	di_print_without_minus(t_printf *list, long long x)
 {
-	while (list->widthofline > 0)
+	while (list->widthofline > list->widthofcontent)
 	{
-		while (list->widthofline > list->widthofcontent)
+		if (list->flag == '0')
 		{
-			if (list->flag == '0')
+			if ((int)x < 0)
 			{
-				if ((int)x < 0)
-				{
-					ft_putchar('-');
-					x *= -1;
-					list->widthofcontent--;
-					list->widthofline--;
-				}
-				ft_putchar('0');
+				ft_putchar('-');
+				x *= -1;
+				list->widthofcontent--;
+				list->widthofline--;
 			}
-			else
-				ft_putchar(' ');
-			list->widthofline--;
+			ft_putchar('0');
 		}
-		if (list->flag == '+' && (int)x >= 0)
-		{
-			ft_putchar('+');
-			list->widthofline--;
-			list->widthofcontent--;
-		}
-		//printf("%li\n", list->widthofline);
-		//printf("%li\n", list->widthofcontent);
-		ft_putstr(ft_itoa(x));
-		list->widthofline -= ft_len_of_int(x);
-		list->widthofcontent -= ft_len_of_int(x);
+		else
+			ft_putchar(' ');
+		list->widthofline--;
 	}
+	if (list->flag == '+' && (int)x >= 0)
+	{
+		ft_putchar('+');
+		list->widthofline--;
+		list->widthofcontent--;
+	}
+	//printf("%li\n", list->widthofline);
+	//printf("%li\n", list->widthofcontent);
+	ft_putstr(ft_itoa(x));
+
 }
 
 void	d_and_i(t_printf *list, long long x)
@@ -89,13 +113,15 @@ void	d_and_i(t_printf *list, long long x)
 			if (list->flag == '+' && (int)x >= 0)
 				list->widthofline++;
 		}
-	if (list->presicion < ft_len_of_int(x) && list->presicion > 0)
-		list->widthofcontent = list->presicion;
-	else
+	if (list->presicion < ft_len_of_int(x) - 1)
 		list->widthofcontent = ft_len_of_int(x);
+	else
+		list->widthofcontent = list->presicion;
 	if (list->flag == '+' && (int)x >= 0)
 		list->widthofcontent++;
-	if ((list->flag == '-') && (list->width > list->widthofcontent))
+	if (list->presicion > ft_len_of_int(x) - 1)
+		presicion_over_len(list, x);
+	else if ((list->flag == '-') && (list->width > list->widthofcontent))
 		di_print_with_minus(list, x);
 	else
 		di_print_without_minus(list, x);
