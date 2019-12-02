@@ -72,6 +72,7 @@ int		main(void)
 	ft_printf(":%.5d:\n", x);
 	ft_printf(":%+.5d:\n", x);
 */
+/*
 	printf(":%u:\n", x);
 	printf(":%5u:\n", x);
 	printf(":%-5u:\n", x);
@@ -92,8 +93,12 @@ int		main(void)
 	ft_printf(":%.2u:\n", x);
 	ft_printf(":%.3u:\n", x);
 	ft_printf(":%.5u:\n", x);
-/*
-
 */
+	printf(":%x:\n", x);
+	printf(":%5x:\n", x);
+	printf(":%-5x:\n", x);
+	printf(":%05x:\n", x);
+
+
 	return (0);
 }
