@@ -24,5 +24,6 @@ t_printf	*newlist_with_printf()
 	list->type = 'Q';
 	list->widthofline = 0;
 	list->widthofcontent = 0;
+	list->base = 10;
 	return (list);
 }

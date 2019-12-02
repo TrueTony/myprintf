@@ -17,7 +17,7 @@ typedef	struct 	s_printf
 	char		type;
 	size_t		widthofline;
 	size_t		widthofcontent;
-	//void	arg; (?)
+	size_t		base;
 }				t_printf;
 
 void			ft_printf(char *format, ...);

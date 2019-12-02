@@ -112,5 +112,9 @@ char	*type(char *format, t_printf *list)
 	{
 		list->type = format[0];
 	}
+	if (format[0] == 'x' || format[0] == 'X')
+		list->base = 16;
+	if (format[0] == 'o')
+		list->base = 8;
 	return (format);
 }
