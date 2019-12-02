@@ -60,7 +60,7 @@ int		ft_prefics(char *str)
 	return (i);
 }
 
-static	unsigned long long	ft_maxmin(char *notcs, int sign)
+unsigned long long	ft_maxmin(char *notcs, int sign)
 {
 	unsigned long long	res;
 	size_t				i;
@@ -108,7 +108,7 @@ int							ft_atoi(const char *str)
 	return (((int)res) * sign);
 }
 
-static	int		lennum(int n)
+int		lennum(int n)
 {
 	int	i;
 
@@ -127,7 +127,7 @@ static	int		lennum(int n)
 	return (i);
 }
 
-static	char	*minimum(void)
+char	*minimum(void)
 {
 	int					i;
 	int					n;
@@ -149,7 +149,7 @@ static	char	*minimum(void)
 	return (res);
 }
 
-static	char	*nole(void)
+char	*nole(void)
 {
 	char	*res;
 
@@ -189,3 +189,4 @@ char			*ft_itoa(int n)
 	}
 	return (res);
 }
+

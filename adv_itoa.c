@@ -1,8 +1,11 @@
 #include "printf.h"
 
-int		lennum(int n)
+char	*minimum(void);
+char	*nole(void);
+
+size_t	lennum_base(int n, int base)
 {
-	int	i;
+	size_t	i;
 
 	i = 1;
 	if (n < 0)
@@ -10,53 +13,29 @@ int		lennum(int n)
 		i++;
 		n *= -1;
 	}
-	while (n >= 10)
+	while (n >= base)
 	{
-		n /= 10;
+		n /= base;
 		i++;
 	}
 	return (i);
 }
 
-char	*minimum(void)
+char			size_of_letter(char c)
 {
-	int					i;
-	int					n;
-	char				*res;
-
-	i = 10;
-	n = -2147483648;
-	res = (char*)malloc(sizeof(char) * 12);
-	if (!res)
-		return (NULL);
-	res[0] = '-';
-	while (i > 0)
-	{
-		res[i] = (n % 10) * -1 + '0';
-		n /= 10;
-		i--;
-	}
-	res[11] = '\0';
-	return (res);
+	if (c >= 'a')
+		return ('a');
+	return ('A');
 }
 
-char	*nole(void)
-{
-	char	*res;
-
-	if (!(res = (char*)malloc(sizeof(char) * 2)))
-		return (NULL);
-	res[0] = '0';
-	res[1] = '\0';
-	return (res);
-}
-
-char			*adv_ft_itoa(int n)
+char			*adv_ft_itoa(int n, int base, char c)
 {
 	char	*res;
 	size_t	len;
+	char	cc;
 
-	len = lennum(n);
+	cc = size_of_letter(c);
+	len = lennum_base(n, base);
 	if (len == 0)
 		return ("");
 	if (n == 0)
@@ -72,8 +51,11 @@ char			*adv_ft_itoa(int n)
 		n *= -1;
 	while (n > 0)
 	{
-		res[len--] = n % 10 + '0';
-		n /= 10;
+		if (n % base > 9)
+			res[len--] = (n % base) + (cc - 10);
+		else
+			res[len--] = (n % base) + '0';
+		n /= base;
 	}
 	return (res);
 }

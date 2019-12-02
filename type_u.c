@@ -78,10 +78,10 @@ void	type_u(t_printf *list, long long x)
 		else
 			list->widthofcontent = list->presicion;
 		if (list->presicion > ft_len_of_int(x) - 1)
-			presicion_over_len(list, x);
+			u_presicion_over_len(list, x);
 		else if ((list->flag == '-') && (list->width > list->widthofcontent))
-			di_print_with_minus(list, x);
+			u_print_with_minus(list, x);
 		else
-			di_print_without_minus(list, x);
+			u_print_without_minus(list, x);
 	}
 }

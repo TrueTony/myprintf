@@ -4,7 +4,7 @@ int		main(void)
 {
 	//char c = 'Z';
 	//char c2 = 'Z';
-	int	x = 27;
+	int	x = 230;
 	//char *str = "hello, world";
 /*
 	printf(":%c:\n", c);
@@ -94,11 +94,25 @@ int		main(void)
 	ft_printf(":%.3u:\n", x);
 	ft_printf(":%.5u:\n", x);
 */
-	printf(":%x:\n", x);
-	printf(":%5x:\n", x);
-	printf(":%-5x:\n", x);
-	printf(":%05x:\n", x);
+	printf(":%X:\n", x);
+	printf(":%5X:\n", x);
+	printf(":%-5X:\n", x);
+	printf(":%05X:\n", x);
 
+	printf(":%.1x:\n", x);
+	printf(":%.2x:\n", x);
+	printf(":%.3x:\n", x);
+	printf(":%.5x:\n", x);
+
+	printf("\n");
+	ft_printf(":%X:\n", x);
+	ft_printf(":%5X:\n", x);
+	ft_printf(":%-5X:\n", x);
+	ft_printf(":%05X:\n", x);
+	ft_printf(":%.1x:\n", x);
+	ft_printf(":%.2x:\n", x);
+	ft_printf(":%.3x:\n", x);
+	ft_printf(":%.5x:\n", x);
 
 	return (0);
 }

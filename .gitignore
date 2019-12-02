@@ -4,3 +4,5 @@ a.out.dSYM
 a.exe
 /.vscode
 printf.h.gch
+ttt.c
+ttt2.c
