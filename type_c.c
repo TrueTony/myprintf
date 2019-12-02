@@ -24,41 +24,23 @@ void	c_width_minus(t_printf *list, unsigned int c)
 
 void	c_width(t_printf *list, unsigned int c)
 {
-	//char tmp;
-
-	//tmp = ' ';
 	if (list->flag == '-')
 		c_width_minus(list, c);
-	/*
 	else
 	{
-		if (list->flag == '0')
-			tmp = '0';
 		while (list->width > 1)
 		{
-			ft_putchar(tmp);
+			ft_putchar(' ');
 			list->width--;
 		}
 		ft_putchar(c);
-	*/
+	}
 }
 
-void	c(t_printf *list, unsigned int c)
+void	type_c(t_printf *list, unsigned int c)
 {
 	if (list->width)
 		c_width(list, c);
 	else
 		ft_putchar(c);
 }
-
-/*
-void	d_and_i(char *format, ...)
-{
-	va_list	ap;
-	va_start(ap, format);
-	int	x;
-
-	x = va_arg(ap, int);
-	ft_putnbr(x);
-}
-*/

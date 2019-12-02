@@ -2,11 +2,12 @@
 
 int		main(void)
 {
-	//char c = 'Z';
+	char c = 'Z';
 	//char c2 = 'Z';
-	int	x = 230;
+	//int	x = 230;
+	//float	y = -1.1234567;
 	//char *str = "hello, world";
-/*
+
 	printf(":%c:\n", c);
 	printf(":%3c:\n", c);
 	printf(":%-3c:\n", c);
@@ -16,7 +17,7 @@ int		main(void)
 	ft_printf(":%c:\n", c);
 	ft_printf(":%3c:\n", c);
 	ft_printf(":%-3c:\n", c);
-
+/*
 	printf("\n");
 
 	printf(":%s:\n", str);
@@ -115,6 +116,7 @@ int		main(void)
 	ft_printf(":%.3x:\n", x);
 	ft_printf(":%.5x:\n", x);
 */
+/*
 	printf(":%o:\n", x);
 	printf(":%5o:\n", x);
 	printf(":%-5o:\n", x);
@@ -133,5 +135,20 @@ int		main(void)
 	ft_printf(":%.2o:\n", x);
 	ft_printf(":%.3o:\n", x);
 	ft_printf(":%.5o:\n", x);
+
+	printf(":%f:\n", y);
+	printf(":%12f:\n", y);
+	printf(":%+f:\n", y);
+	printf(":%+12f:\n", y);
+	printf(":%-12f:\n", y);
+	printf(":%012f:\n", y);
+
+	printf(":%.1f:\n", y);
+	printf(":%.2f:\n", y);
+	printf(":%.3f:\n", y);
+	printf(":%.5f:\n", y);
+	printf(":%+.5f:\n", y);
+	printf(":%.12f:\n", y);
+*/
 	return (0);
 }

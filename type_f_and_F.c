@@ -1,6 +1,6 @@
 #include "printf.h"
 
-size_t	ft_len_of_int(long long i)
+size_t	ft_len_of_double(double i)
 {
 	size_t	res;
 
@@ -15,10 +15,10 @@ size_t	ft_len_of_int(long long i)
 		res++;
 		i /=10;
 	}
-	return (res);
+	return (res + 6);
 }
 
-void	di_print_with_minus(t_printf *list, long long x)
+void	fF_print_with_minus(t_printf *list, double x)
 {
 	while (list->widthofline > 0)
 	{
@@ -31,15 +31,15 @@ void	di_print_with_minus(t_printf *list, long long x)
 					list->widthofcontent--;
 			}
 			ft_putstr(ft_itoa(x));
-			list->widthofline -= ft_len_of_int(x);
-			list->widthofcontent -= ft_len_of_int(x);
+			list->widthofline -= ft_len_of_double(x);
+			list->widthofcontent -= ft_len_of_double(x);
 		}
 		ft_putchar(' ');
 		list->widthofline--;
 	}
 }
 
-void	presicion_over_len(t_printf *list, long long x)
+void	fF_presicion_over_len(t_printf *list, double x)
 {
 	if (list->flag == '+' && (int)x >= 0)
 	{
@@ -61,7 +61,7 @@ void	presicion_over_len(t_printf *list, long long x)
 	ft_putstr(ft_itoa(x));
 }
 
-void	di_print_without_minus(t_printf *list, long long x)
+void	fF_print_without_minus(t_printf *list, double x)
 {
 	while (list->widthofline > list->widthofcontent)
 	{
@@ -90,29 +90,29 @@ void	di_print_without_minus(t_printf *list, long long x)
 
 }
 
-void	d_and_i(t_printf *list, long long x)
+void	type_f_and_F(t_printf *list, double x)
 {
-	if (list->width > ft_len_of_int(x))
+	if (list->width > ft_len_of_double(x))
 		list->widthofline = list->width;
 	else
-		if (list->presicion < ft_len_of_int(x) && list->presicion > 0)
+		if (list->presicion < ft_len_of_double(x) && list->presicion > 0)
 			list->widthofline = list->presicion;
 		else
 		{
-			list->widthofline = ft_len_of_int(x);
+			list->widthofline = ft_len_of_double(x);
 			if (list->flag == '+' && (int)x >= 0)
 				list->widthofline++;
 		}
-	if (list->presicion < ft_len_of_int(x) - 1)
-		list->widthofcontent = ft_len_of_int(x);
+	if (list->presicion < ft_len_of_double(x) - 1)
+		list->widthofcontent = ft_len_of_double(x);
 	else
 		list->widthofcontent = list->presicion;
 	if (list->flag == '+' && (int)x >= 0)
 		list->widthofcontent++;
-	if (list->presicion > ft_len_of_int(x) - 1)
-		presicion_over_len(list, x);
+	if (list->presicion > ft_len_of_double(x) - 1)
+		fF_presicion_over_len(list, x);
 	else if ((list->flag == '-') && (list->width > list->widthofcontent))
-		di_print_with_minus(list, x);
+		fF_print_with_minus(list, x);
 	else
-		di_print_without_minus(list, x);
+		fF_print_without_minus(list, x);
 }

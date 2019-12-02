@@ -27,7 +27,7 @@ char			*width(char *format, t_printf *list);
 char			*presicion(char *format, t_printf *list);
 char			*length(char *format, t_printf *list);
 char			*type(char *format, t_printf *list);
-void			c(t_printf *list, unsigned int c);
+void			type_c(t_printf *list, unsigned int c);
 void			c_width(t_printf *list, unsigned int c);
 void			c_width_minus(t_printf *list, unsigned int c);
 void			str(t_printf *list, char *str);

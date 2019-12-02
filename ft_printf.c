@@ -20,6 +20,7 @@ void		ft_printf(char *format, ...)
 	//int				x;
 	unsigned	int ux;
 	long long		lx;
+	//float			fx;
 	char			*s;
 
 	//x = 0;
@@ -34,25 +35,25 @@ void		ft_printf(char *format, ...)
 			if (list->type == 'c')
 			{
 				ux = va_arg(ap, int);
-				c(list, ux);
+				type_c(list, ux);
 			}
 
-			if (list->type == 's' || list->type == 'S')
+			else if (list->type == 's' || list->type == 'S')
 			{
 				s = va_arg(ap, char*);
 				str(list, s);
 			}
-			if (list->type == 'd' || list->type == 'i')
+			else if (list->type == 'd' || list->type == 'i')
 			{
 				lx = va_arg(ap, long long);
 				d_and_i(list, lx);
 			}
-			if (list->type == 'u')
+			else if (list->type == 'u')
 			{
 				lx = va_arg(ap, long long);
 				type_u(list, lx);
 			}
-			if (list->type == 'x' || list->type == 'X' || 'o')
+			else if (list->type == 'x' || list->type == 'X' || 'o')
 			{
 				lx = va_arg(ap, long long);
 				type_x_and_X(list, lx);
