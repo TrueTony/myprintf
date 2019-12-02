@@ -39,4 +39,9 @@ void			di_print_without_minus(t_printf *list, long long x);
 void			di_print_with_minus(t_printf *list, long long x);
 void			presicion_over_len(t_printf *list, long long x);
 
+void			type_u(t_printf *list, long long x);
+void			u_print_without_minus(t_printf *list, long long x);
+void			u_presicion_over_len(t_printf *list, long long x);
+void			u_print_with_minus(t_printf *list, long long x);
+
 #endif

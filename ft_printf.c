@@ -47,6 +47,11 @@ void		ft_printf(char *format, ...)
 				lx = va_arg(ap, long long);
 				d_and_i(list, lx);
 			}
+			if (list->type == 'u')
+			{
+				lx = va_arg(ap, long long);
+				type_u(list, lx);
+			}
 		}
 		else
 			ft_putchar(*format);
