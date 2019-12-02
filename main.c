@@ -94,6 +94,7 @@ int		main(void)
 	ft_printf(":%.3u:\n", x);
 	ft_printf(":%.5u:\n", x);
 */
+/*
 	printf(":%X:\n", x);
 	printf(":%5X:\n", x);
 	printf(":%-5X:\n", x);
@@ -113,6 +114,24 @@ int		main(void)
 	ft_printf(":%.2x:\n", x);
 	ft_printf(":%.3x:\n", x);
 	ft_printf(":%.5x:\n", x);
+*/
+	printf(":%o:\n", x);
+	printf(":%5o:\n", x);
+	printf(":%-5o:\n", x);
+	printf(":%05o:\n", x);
+	printf(":%.1o:\n", x);
+	printf(":%.2o:\n", x);
+	printf(":%.3o:\n", x);
+	printf(":%.5o:\n", x);
 
+	printf("\n");
+	ft_printf(":%o:\n", x);
+	ft_printf(":%5o:\n", x);
+	ft_printf(":%-5o:\n", x);
+	ft_printf(":%05o:\n", x);
+	ft_printf(":%.1o:\n", x);
+	ft_printf(":%.2o:\n", x);
+	ft_printf(":%.3o:\n", x);
+	ft_printf(":%.5o:\n", x);
 	return (0);
 }
