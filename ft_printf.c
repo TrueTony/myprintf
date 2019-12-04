@@ -53,7 +53,7 @@ void		ft_printf(char *format, ...)
 				lx = va_arg(ap, long long);
 				type_u(list, lx);
 			}
-			else if (list->type == 'x' || list->type == 'X' || 'o')
+			else if (list->type == 'x' || list->type == 'X' || list->type == 'o')
 			{
 				lx = va_arg(ap, long long);
 				type_x_and_X(list, lx);
