@@ -57,20 +57,23 @@ int main(void)
         arr[i] = 0;
         i++;
     }
-    double a = 44565871.34;
-    double b = 4634564.12;
-    int    stepen = 2;
-    unsigned long long d = a*ft_pow_float(10, stepen);
-    unsigned long long e = b*ft_pow_float(10, stepen);
+    double a = 44565.87134;
+    double b = 4634.56412;
+    int    stepen = 5;
+    unsigned long long d = a * ft_pow_float(10, stepen);
+    unsigned long long e = b * ft_pow_float(10, stepen);
     printf("%llu\n", d);
     printf("%llu\n", e);
     in_arr(d, e, arr, 4, 0);
     i = 0;
-
     while (i < 5)
     {
-		if (i == 4)
-			printf("%llu.%llu", arr[i] / (int)ft_pow_float(10, stepen), arr[i] % (int)ft_pow_float(10, stepen));
+		if (i == 4 - stepen / 4)
+		{
+			printf("%llu.", arr[i] / (int)ft_pow_float(10, stepen % 4));
+			if (arr[i] % (int)ft_pow_float(10, stepen % 4) > 0)
+				printf("%llu", arr[i] % (int)ft_pow_float(10, stepen % 4));
+		}
 		else
         	printf("%llu", arr[i]);
         i++;
