@@ -3,47 +3,76 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-void    in_arr2(int a, int b, int *arr, int i, int buf)
+double ft_pow_float(int a, int b)
 {
-    int res;
-    int tmp;
+    int i;
+    float res;
+
+    i = a;
+    res = a;
+    if (b == 0)
+        return (1.0);
+    if (b > 0)
+    {
+        b--;
+        while (b--)
+            res = res * i;
+    }
+    else
+        res = 1 / ft_pow_float(a, b * -1);
+    return (res);
+}
+
+void    in_arr(unsigned long long a, unsigned long long b, unsigned long long *arr, int i, unsigned long long buf)
+{
+    unsigned long long res;
+    unsigned long long tmp;
     int tmp_i;
 
     tmp_i = i - 1;
     res = a % 10000 + b % 10000;
+    printf("%llu %llu %llu\n", a % 10000, b % 10000, a % 10000 + b % 10000);
     buf = res / 10000;
+    printf("%llu\n", res / 10000);
     tmp = arr[i] + res;
     if (tmp > 9999)
     {
-        in_arr2(arr[i], res / 10000, arr, tmp_i, buf);
+        in_arr(arr[tmp_i], res / 10000, arr, tmp_i, buf);
     }
-    if (i > 0 && (arr[tmp_i] + buf) > 9999)
-    {
-        in_arr2(arr[i], buf, arr, tmp_i, buf);
-    }
-    arr[i] = tmp;
-    if (tmp > 0)
-        in_arr2(a / 10000, b / 10000, arr, tmp_i, buf);
+    arr[i] = tmp % 10000;
+    if (a / 10000 > 0 || b / 10000 > 0)
+        in_arr(a / 10000, b / 10000, arr, tmp_i, buf);
 
 }
 
 int main(void)
 {
-    int *arr;
+    unsigned long long *arr;
     int i;
 
     i = 0;
-    arr = (int*)malloc(sizeof(int) * 4);
-    while (i < 4)
+    arr = (unsigned long long*)malloc(sizeof(unsigned long long) * 5);
+    while (i < 5)
     {
         arr[i] = 0;
         i++;
     }
-    in_arr2(44565871, 4634564, arr, 3, 0);
+    double a = 44565871.34;
+    double b = 4634564.12;
+    int    stepen = 2;
+    unsigned long long d = a*ft_pow_float(10, stepen);
+    unsigned long long e = b*ft_pow_float(10, stepen);
+    printf("%llu\n", d);
+    printf("%llu\n", e);
+    in_arr(d, e, arr, 4, 0);
     i = 0;
-    while (i < 4)
+
+    while (i < 5)
     {
-        printf("%d", arr[i]);
+		if (i == 4)
+			printf("%llu.%llu", arr[i] / (int)ft_pow_float(10, stepen), arr[i] % (int)ft_pow_float(10, stepen));
+		else
+        	printf("%llu", arr[i]);
         i++;
     }
     return (0);
