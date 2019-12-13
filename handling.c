@@ -145,13 +145,19 @@ void    in_arr(unsigned long long a, unsigned long long b, unsigned long long *a
     res = a % 10000 + b % 10000;
     printf("a b sum:%llu %llu %llu\n", a % 10000, b % 10000, a % 10000 + b % 10000);
     buf = res / 10000;
-    printf("res:%llu\n", res / 10000);
+    printf("over:%llu\n", res / 10000);
     tmp = arr[i] + res;
-    if (tmp > 9999)
+    if (res > 9999)
     {
         in_arr(arr[tmp_i], res / 10000, arr, tmp_i, buf);
     }
-    arr[i] = tmp % 10000;
+
+	if (tmp > 9999)
+    {
+        in_arr(0, tmp / 10000, arr, tmp_i, buf);
+    }
+
+	arr[i] = tmp % 10000;
     if (a / 10000 > 0 || b / 10000 > 0)
 	{
         in_arr(a / 10000, b / 10000, arr, tmp_i, buf);
@@ -174,11 +180,13 @@ char	*full_mantissa(char *str)
 	len2 = 0;
 	while (len2 + len < 23)
 		len2++;
-	if (!(res = (char*)malloc(sizeof(char) * len + len2 + 1 + 1)))
+	if (!(res = (char*)malloc(sizeof(char) * (25))))
 		return (NULL);
-	res[len + len2 + 2] = '\0';
-	if (len2 > 0)
-		res[i++] = '1';
+	res[24] = '\0';
+	res[i] = '1';
+	i++;
+	//if (len2 > 0)
+	//	res[i++] = '1';
 	while (len2 > 0)
 	{
 		res[i] = '0';
@@ -208,6 +216,7 @@ int		main(void)
 
 	f = 236565.15435357625;
 	f = 123456789;
+	//f = 12345678;
     i = 0;
     arr = (unsigned long long*)malloc(sizeof(unsigned long long) * 8);
     while (i < 8)
@@ -216,16 +225,20 @@ int		main(void)
         i++;
     }
 	d1.f = f;
+	printf("m:%d e:%d\n", d1.part.m, d1.part.e);
 	bits = full_mantissa(adv_ft_itoa(d1.part.m, 2, 'c'));
 	e = d1.part.e - 127;
 	// power is equal presicion
-	power = 6;
+	power = 0;
 	printf("\n%d %d\n", e, power);
 	while (*bits)
 	{
-		printf("bit:%llu\n", ((unsigned long long)((*bits - 48) * ft_pow_float(2, e))) * (unsigned long long)ft_pow_float(10, power));
 
-		in_arr(0, ((unsigned long long)((*bits - 48) * ft_pow_float(2, e))), arr, 7, 0);
+		if (((unsigned long long)((*bits - 48) * ft_pow_float(2, e))) * (unsigned long long)ft_pow_float(10, power) > 0)
+		{
+			printf("bit:%llu\n", ((unsigned long long)((*bits - 48) * ft_pow_float(2, e))) * (unsigned long long)ft_pow_float(10, power));
+			in_arr(0, ((unsigned long long)((*bits - 48) * ft_pow_float(2, e))), arr, 7, 0);
+		}
 		e--;
 		bits++;
 	}
