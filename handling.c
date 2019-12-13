@@ -122,6 +122,8 @@ double ft_pow_float(int a, int b)
     res = a;
     if (b == 0)
         return (1.0);
+	if (b == 1)
+		return (a);
     if (b > 0)
     {
         b--;
@@ -169,6 +171,7 @@ char	*full_mantissa(char *str)
 	i = 0;
 	j = 0;
 	len = ft_strlen(str);
+	len2 = 0;
 	while (len2 + len < 23)
 		len2++;
 	if (!(res = (char*)malloc(sizeof(char) * len + len2 + 1 + 1)))
@@ -176,10 +179,11 @@ char	*full_mantissa(char *str)
 	res[len + len2 + 2] = '\0';
 	if (len2 > 0)
 		res[i++] = '1';
-	while (len2)
+	while (len2 > 0)
 	{
 		res[i] = '0';
 		i++;
+		len2--;
 	}
 	while (len--)
 	{
