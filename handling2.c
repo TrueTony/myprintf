@@ -38,9 +38,49 @@ void	mult(unsigned long long *arr, int i, int num)
 		addit(arr, i - 1, res / x);
 	arr[i] = res % x;
 	mult(arr, i - 1, num);
-
 }
 
+int		findfirstel(unsigned long long *arr, int end)
+{
+	int i;
+
+	i = 0;
+	while (i < end)
+	{
+		if (arr[i] != 0)
+			return (i);
+		i++;
+	}
+	return (end);
+}
+
+
+void	subst(unsigned long long *arr, int i, unsigned long long num)
+{
+	unsigned long long x;
+	unsigned long long res;
+
+	x = 10000000000;
+	if (num / x > 0)
+    {
+		subst(arr, i - 1, num / x);
+        num = num % x;
+    }
+	res = arr[i] - num;
+	if (arr[i] < num)
+	{
+		subst(arr, i + 1, 1);
+		arr[i] = x - res;
+	}
+	else
+		arr[i] = res;
+}
+/*
+void	divis(unsigned long long *arr, int i, int num)
+{
+
+}
+*/
 int		main(void)
 {
 	double d;
@@ -65,7 +105,7 @@ int		main(void)
 	while (pow)
 	{
 		printf("pow=%d\n", pow);
-		mult(arr, countofel - 1, 10);
+		mult(arr, countofel - 1, 2);
 		pow--;
 	}
 	i = 0;
@@ -74,6 +114,7 @@ int		main(void)
         printf("%llu", arr[i]);
         i++;
     }
+	printf("\nthe first element:%d", findfirstel(arr, countofel));
 	printf("\n");
 	return (0);
 }
