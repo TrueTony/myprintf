@@ -75,12 +75,30 @@ void	subst(unsigned long long *arr, int i, unsigned long long num)
 	else
 		arr[i] = res;
 }
-/*
-void	divis(unsigned long long *arr, int i, int num)
-{
 
+void	divis(unsigned long long *arr, unsigned long long *arr2, int i, int num)
+{
+	unsigned long long res;
+	unsigned long long cell;
+	unsigned long long x;
+	int end;
+
+	x = 10000000000;
+	end = i;
+	res = 0;
+	i = findfirstel(arr, end);
+	cell = arr[i];
+	while (i <= end)
+	{
+		res = (cell / num);
+		printf("cell:%llu / num:%d = res:%llu\n", cell, num, res);
+		if (res > 0)
+			arr2[i] = res;
+		cell = ((arr[i] % num) * x) + arr[i + 1];
+		i++;
+	}
 }
-*/
+
 int		main(void)
 {
 	double d;
@@ -89,6 +107,7 @@ int		main(void)
 	int i;
 	int countofel = 12;
 	int pow;
+	unsigned long long *arr2;
 
 	i = 0;
 	pow = 5;
@@ -109,9 +128,22 @@ int		main(void)
 		pow--;
 	}
 	i = 0;
+	arr2 = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
+    while (i < countofel)
+    {
+        arr2[i] = 0;
+        i++;
+    }
+	i = 0;
 	while (i < countofel)
     {
         printf("%llu", arr[i]);
+        i++;
+    }
+	i = 0;
+	while (i < countofel)
+    {
+        printf("%llu", arr2[i]);
         i++;
     }
 	printf("\nthe first element:%d", findfirstel(arr, countofel));
