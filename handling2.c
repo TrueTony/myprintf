@@ -8,7 +8,7 @@ typedef union 	s_double
 	double d;
 	struct
 	{
-		unsigned long long m: 52;
+		unsigned long long m: 53;
 		unsigned long long e: 11;
 		unsigned long long s: 1;
 	}			part;
@@ -20,7 +20,7 @@ void	addit(unsigned long long *arr, int i, unsigned long long num)
 
 	x = 10000000000;
 	arr[i] += num % x;
-	printf("arr[i]:%llu i:%d\n", arr[i], i);
+	//printf("arr[i]:%llu i:%d\n", arr[i], i);
 	if (arr[i] + num % x > 999999999 || num / x > 0)
 		addit(arr, i - 1, num / x);
 }
@@ -53,7 +53,6 @@ int		findfirstel(unsigned long long *arr, int end)
 	}
 	return (end);
 }
-
 
 void	subst(unsigned long long *arr, int i, unsigned long long num)
 {
@@ -91,40 +90,48 @@ void	divis(unsigned long long *arr, int i, int num)
 	while (i <= end)
 	{
 		res = (cell / num);
-		printf("cell:%llu / num:%d = res:%llu\n", cell, num, res);
+		//printf("cell:%llu / num:%d = res:%llu\n", cell, num, res);
 		cell = ((arr[i] % num) * x) + arr[i + 1];
 		arr[i] = res;
 		i++;
 	}
 }
 
+int		numlen(unsigned long long num)
+{
+	int	res;
+
+	res = 1;
+	while (num >= 10)
+	{
+		num /= 10;
+		res++;
+	}
+	return (res);
+}
+
 int		main(void)
 {
-	double d;
-	t_double d1;
+	//double d;
+	//t_double d1;
 	unsigned long long *arr;
 	int i;
-	int countofel = 12;
+	int j;
+	int countofel = 5;
 	int pow;
 
 	i = 0;
-	pow = 5;
-	d = 123456789;
-	d1.d = d;
-	//printf("\nm:%llu e:%llu s:%llu\n\n", d1.part.m, d1.part.e, d1.part.s);
+	pow = 1;
+	//d = 123456789;
+	//d1.d = d;
+	//printf("\nm:%llu e:%u s:%u\n\n", (unsigned long long)d1.part.m, d1.part.e, d1.part.s);
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
     while (i < countofel)
     {
         arr[i] = 0;
         i++;
     }
-	addit(arr, countofel - 1, d1.part.m);
-	while (pow)
-	{
-		printf("pow=%d\n", pow);
-		mult(arr, countofel - 1, 2);
-		pow--;
-	}
+	addit(arr, countofel - 1, 10000000000);
 	i = 0;
 	while (i < countofel)
     {
@@ -132,10 +139,21 @@ int		main(void)
         i++;
     }
 	printf("\n");
-	divis(arr, countofel - 1, 2);
+	while (pow)
+	{
+		//printf("pow=%d\n", pow);
+		mult(arr, countofel - 1, 2);
+		pow--;
+	}
 	i = 0;
 	while (i < countofel)
     {
+		j = numlen(arr[i]);
+		while (j < 10)
+		{
+			printf("0");
+			j++;
+		}
         printf("%llu", arr[i]);
         i++;
     }
