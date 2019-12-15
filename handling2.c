@@ -76,7 +76,7 @@ void	subst(unsigned long long *arr, int i, unsigned long long num)
 		arr[i] = res;
 }
 
-void	divis(unsigned long long *arr, unsigned long long *arr2, int i, int num)
+void	divis(unsigned long long *arr, int i, int num)
 {
 	unsigned long long res;
 	unsigned long long cell;
@@ -92,9 +92,8 @@ void	divis(unsigned long long *arr, unsigned long long *arr2, int i, int num)
 	{
 		res = (cell / num);
 		printf("cell:%llu / num:%d = res:%llu\n", cell, num, res);
-		if (res > 0)
-			arr2[i] = res;
 		cell = ((arr[i] % num) * x) + arr[i + 1];
+		arr[i] = res;
 		i++;
 	}
 }
@@ -107,13 +106,12 @@ int		main(void)
 	int i;
 	int countofel = 12;
 	int pow;
-	unsigned long long *arr2;
 
 	i = 0;
 	pow = 5;
 	d = 123456789;
 	d1.d = d;
-	printf("\nm:%llu e:%llu s:%llu\n\n", d1.part.m, d1.part.e, d1.part.s);
+	//printf("\nm:%llu e:%llu s:%llu\n\n", d1.part.m, d1.part.e, d1.part.s);
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
     while (i < countofel)
     {
@@ -128,25 +126,19 @@ int		main(void)
 		pow--;
 	}
 	i = 0;
-	arr2 = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
-    while (i < countofel)
+	while (i < countofel)
     {
-        arr2[i] = 0;
+        printf("%llu", arr[i]);
         i++;
     }
+	printf("\n");
+	divis(arr, countofel - 1, 2);
 	i = 0;
 	while (i < countofel)
     {
         printf("%llu", arr[i]);
         i++;
     }
-	i = 0;
-	while (i < countofel)
-    {
-        printf("%llu", arr2[i]);
-        i++;
-    }
-	printf("\nthe first element:%d", findfirstel(arr, countofel));
 	printf("\n");
 	return (0);
 }
