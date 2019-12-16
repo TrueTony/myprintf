@@ -25,19 +25,19 @@ void	addit(unsigned long long *arr, int i, unsigned long long num)
 		addit(arr, i - 1, num / x);
 }
 
-void	mult(unsigned long long *arr, int i, int num)
+void	mult(unsigned long long *arr, int i, int num, int end)
 {
 	unsigned long long x;
 	unsigned long long res;
 
-	if (i < 0)
+	if (i == end)
 		return ;
 	x = 10000000000;
 	res = arr[i] * num;
 	if (res > 999999999)
 		addit(arr, i - 1, res / x);
 	arr[i] = res % x;
-	mult(arr, i - 1, num);
+	mult(arr, i + 1, num, end);
 }
 
 int		findfirstel(unsigned long long *arr, int end)
@@ -143,7 +143,7 @@ int		main(void)
 	while (pow)
 	{
 		//printf("pow=%d\n", pow);
-		mult(arr, countofel - 1, 2);
+		mult(arr, countofel - 1, 2, countofel);
 		pow--;
 	}
 	i = 0;
