@@ -8,7 +8,7 @@ typedef union 	s_double
 	double d;
 	struct
 	{
-		unsigned long long m: 53;
+		unsigned long long m: 52;
 		unsigned long long e: 11;
 		unsigned long long s: 1;
 	}			part;
@@ -111,39 +111,83 @@ int		numlen(unsigned long long num)
 	return (res);
 }
 
+double ft_pow_float(int a, int b)
+{
+    int i;
+    float res;
+
+    i = a;
+    res = a;
+    if (b == 0)
+        return (1.0);
+	if (b == 1)
+		return (a);
+    if (b > 0)
+    {
+        b--;
+        while (b--)
+            res = res * i;
+    }
+    else
+        res = 1 / ft_pow_float(a, b * -1);
+    return (res);
+}
+
 int		main(void)
 {
-	//double d;
-	//t_double d1;
+	double d;
+	t_double d1;
 	unsigned long long *arr;
 	int i;
 	int j;
-	int countofel = 5;
+	int countofel = 15;
 	int pow;
 
 	i = 0;
-	pow = 1;
-	//d = 123456789;
-	//d1.d = d;
-	//printf("\nm:%llu e:%u s:%u\n\n", (unsigned long long)d1.part.m, d1.part.e, d1.part.s);
+	pow = 52;
+	d = 123456789;
+	d1.d = d;
+	printf("\nm:%llu e:%u s:%u\n\n", (unsigned long long)d1.part.m, d1.part.e, d1.part.s);
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
     while (i < countofel)
     {
         arr[i] = 0;
         i++;
     }
-	addit(arr, countofel - 1, 10000000000);
+
+	addit(arr, countofel - 1, d1.part.m);
 	i = 0;
 	while (i < countofel)
     {
+		j = numlen(arr[i]);
+		while (j < 10)
+		{
+			printf("0");
+			j++;
+		}
         printf("%llu", arr[i]);
         i++;
     }
 	printf("\n");
 	while (pow)
 	{
-		//printf("pow=%d\n", pow);
-		mult(arr, countofel - 1, 2, countofel);
+		mult(arr, 0, 10, countofel);
+		pow--;
+	}
+	pow = 52;
+	while (pow)
+	{
+		divis(arr, countofel - 1, 2);
+		pow--;
+	}
+	pow = 52;
+	i = pow / 10;
+	pow = pow % 10;
+	addit(arr, countofel - 1 - i, (int)ft_pow_float(10, pow));
+	pow = d1.part.e - 1023;
+	while (pow)
+	{
+		mult(arr, 0, 2, countofel);
 		pow--;
 	}
 	i = 0;
