@@ -54,7 +54,7 @@ int		findfirstel(unsigned long long *arr, int end)
 	return (end);
 }
 
-void	subst(unsigned long long *arr, int i, unsigned long long num)
+void	subst(unsigned long long *arr, int i, unsigned long long num, int end)
 {
 	unsigned long long x;
 	unsigned long long res;
@@ -62,13 +62,14 @@ void	subst(unsigned long long *arr, int i, unsigned long long num)
 	x = 10000000000;
 	if (num / x > 0)
     {
-		subst(arr, i - 1, num / x);
+		subst(arr, i - 1, num / x, end);
         num = num % x;
     }
 	res = arr[i] - num;
 	if (arr[i] < num)
 	{
-		subst(arr, i + 1, 1);
+		if (i < end)
+			subst(arr, i + 1, 1, end);
 		arr[i] = x - res;
 	}
 	else
