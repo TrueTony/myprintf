@@ -145,7 +145,7 @@ int		main(void)
 
 	i = 0;
 	pow = 52;
-	d = 123456789;
+	d = 123456.1234567;
 	d1.d = d;
 	printf("\nm:%llu e:%u s:%u\n\n", (unsigned long long)d1.part.m, d1.part.e, d1.part.s);
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
@@ -171,13 +171,7 @@ int		main(void)
 	printf("\n");
 	while (pow)
 	{
-		mult(arr, 0, 10, countofel);
-		pow--;
-	}
-	pow = 52;
-	while (pow)
-	{
-		divis(arr, countofel - 1, 2);
+		mult(arr, 0, 5, countofel);
 		pow--;
 	}
 	pow = 52;
@@ -200,6 +194,7 @@ int		main(void)
 			j++;
 		}
         printf("%llu", arr[i]);
+		//printf("\n");
         i++;
     }
 	printf("\n");
