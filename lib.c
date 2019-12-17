@@ -198,9 +198,13 @@ double ft_pow_float(int a, int b)
     i = a;
     res = a;
     if (b == 0)
+	{
         return (1.0);
+	}
 	if (b == 1)
+	{
 		return (a);
+	}
     if (b > 0)
     {
         b--;

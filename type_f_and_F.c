@@ -12,7 +12,7 @@ void	fF_print_with_minus(t_printf *list, double x)
 					list->widthofline--;
 					list->widthofcontent--;
 			}
-			ft_putstr(ft_itoa(x));
+			handling_float(x, 15, 52);
 			list->widthofline -= ft_len_of_double(x);
 			list->widthofcontent -= ft_len_of_double(x);
 		}
@@ -40,7 +40,7 @@ void	fF_presicion_over_len(t_printf *list, double x)
 		ft_putchar('0');
 		list->widthofcontent--;
 	}
-	ft_putstr(ft_itoa(x));
+	handling_float(x, 15, 52);
 }
 
 void	fF_print_without_minus(t_printf *list, double x)
@@ -68,7 +68,7 @@ void	fF_print_without_minus(t_printf *list, double x)
 		list->widthofline--;
 		list->widthofcontent--;
 	}
-	ft_putstr(ft_itoa(x));
+	handling_float(x, 15, 52);
 
 }
 

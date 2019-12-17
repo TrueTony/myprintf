@@ -61,7 +61,7 @@ void		ft_printf(char *format, ...)
 			else if (list->type == 'f')
 			{
 				fx = va_arg(ap, long long);
-				type_f_and_F(list, lx);
+				type_f_and_F(list, fx);
 			}
 		}
 		else

@@ -3,6 +3,8 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+#include "printf.h"
+
 size_t	ft_strlen(const char *s);
 void	ft_putchar(char c);
 char	*adv_ft_itoa(long long n, int base, char c);
@@ -71,19 +73,13 @@ char	*full_str(char *str)
 	return (res);
 }
 
-int		main(void)
+int		handling_float(double d, int countofel, int pow)
 {
-	double d;
 	t_double d1;
 	unsigned long long *arr;
 	int i;
-	int j;
-	int countofel = 15;
-	int pow;
 
 	i = 0;
-	pow = 52;
-	d = 123456.1234567;
 	d1.d = d;
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
     while (i < countofel)

@@ -158,7 +158,9 @@ int		main(void)
 	printf(":%.12f:\n", y);
 
 	printf("\n");
+*/
 	ft_printf(":%f:\n", y);
+/*
 	ft_printf(":%12f:\n", y);
 	ft_printf(":%+f:\n", y);
 	ft_printf(":%+12f:\n", y);
