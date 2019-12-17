@@ -49,8 +49,9 @@ void			x_presicion_over_len(t_printf *list, long long x);
 void			x_print_with_minus(t_printf *list, long long x);
 
 char			*adv_ft_itoa(long long n, int base, char c);
-size_t			lennum_base(int n, int base);
+size_t			lennum_base(long long n, int base);
 void			type_f_and_F(t_printf *list, double x);
-int				handling_float(double d, int countofel, int pow);
+int				handling_float(double d, int countofel, int pow, int p);
+char			*nole(void);
 
 #endif

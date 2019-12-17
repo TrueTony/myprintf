@@ -24,7 +24,6 @@ char	*flag(char *format, t_printf *list)
 		list->flag  = '0';
 	if (*format == ' ')
 		list->flag  = ' ';
-	//list->flag  = NULL;
 	if (list->flag != 'Q')
 		format++;
 	return (width(format, list));
@@ -53,8 +52,6 @@ char	*presicion(char *format, t_printf *list)
 {
 	int num;
 
-	if (ft_strchr(format, 'f') || ft_strchr(format, 'F'))
-		list->presicion = 6;
 	if (*format == '.')
 	{
 		format++;
@@ -65,9 +62,15 @@ char	*presicion(char *format, t_printf *list)
 			format++;
 			num /= 10;
 		}
+		if (*format == '0')
+			format++;
 	}
 	else
+	{
 		list->presicion = 0;
+		if (ft_strchr(format, 'f') || ft_strchr(format, 'F'))
+			list->presicion = 6;
+	}
 	return (length(format, list));
 }
 

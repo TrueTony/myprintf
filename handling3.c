@@ -8,6 +8,7 @@
 size_t	ft_strlen(const char *s);
 void	ft_putchar(char c);
 char	*adv_ft_itoa(long long n, int base, char c);
+int		lennum(long long n);
 
 typedef union 	s_double
 {
@@ -73,12 +74,15 @@ char	*full_str(char *str)
 	return (res);
 }
 
-int		handling_float(double d, int countofel, int pow)
+int		handling_float(double d, int countofel, int pow, int p)
 {
 	t_double d1;
 	unsigned long long *arr;
 	int i;
+	char *tmp;
+	int n;
 
+	n = 98;
 	i = 0;
 	d1.d = d;
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
@@ -93,9 +97,6 @@ int		handling_float(double d, int countofel, int pow)
 		mult(arr, 0, 5, countofel);
 		pow--;
 	}
-	pow = 52;
-	i = pow / 10;
-	pow = pow % 10;
 	addit(arr, 9, 100);
 	pow = d1.part.e - 1023;
 	while (pow)
@@ -104,9 +105,6 @@ int		handling_float(double d, int countofel, int pow)
 		pow--;
 	}
 	i = 0;
-	int n = 98;
-	int p = 6;
-	char *tmp;
 	while (arr[i] == 0 || n > 10)
 	{
 		i++;
@@ -120,7 +118,8 @@ int		handling_float(double d, int countofel, int pow)
 	}
 	while (n--)
 		ft_putchar(*tmp++);
-	ft_putchar('.');
+	if (p)
+		ft_putchar('.');
 	while (p)
 	{
 		if (*tmp)

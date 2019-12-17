@@ -1,9 +1,7 @@
 #include "printf.h"
 
-char	*minimum(void);
-char	*nole(void);
 
-size_t	lennum_base(int n, int base)
+size_t	lennum_base(long long n, int base)
 {
 	size_t	i;
 

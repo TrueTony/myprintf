@@ -31,7 +31,7 @@ void		ft_printf(char *format, ...)
 			format++;
 			list = newlist_with_printf();
 			format = flag(format, list);
-			//printf("%c %I64i %I64i %s %c\n", list->flag, list->width, list->presicion, list->length, list->type);
+			//printf("%c %lu %lu %s %c\n", list->flag, list->width, list->presicion, list->length, list->type);
 			if (list->type == 'c')
 			{
 				ux = va_arg(ap, int);

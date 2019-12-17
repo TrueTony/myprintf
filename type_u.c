@@ -2,8 +2,6 @@
 
 void	u_print_with_minus(t_printf *list, long long x)
 {
-	//printf("%I64i\n", list->widthofline);
-	//printf("%I64i\n", list->widthofcontent);
 	while (list->widthofline > 0)
 	{
 		while (list->widthofcontent)
@@ -25,8 +23,6 @@ void	u_presicion_over_len(t_printf *list, long long x)
 		x *= -1;
 		list->widthofline--;
 	}
-	//printf("\n%li\n", list->widthofline);
-	//printf("%li\n", list->widthofcontent);
 	while (list->widthofcontent > list->widthofline)
 	{
 		ft_putchar('0');
@@ -54,8 +50,6 @@ void	u_print_without_minus(t_printf *list, long long x)
 			ft_putchar(' ');
 		list->widthofline--;
 	}
-	//printf("%li\n", list->widthofline);
-	//printf("%li\n", list->widthofcontent);
 	ft_putstr(ft_itoa(x));
 
 }

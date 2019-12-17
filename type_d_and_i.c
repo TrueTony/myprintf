@@ -99,18 +99,17 @@ void	d_and_i(t_printf *list, long long x)
 		if (list->presicion < ft_len_of_int(x) && list->presicion > 0)
 			list->widthofline = list->presicion;
 		else
-		{
 			list->widthofline = ft_len_of_int(x);
-			if (list->flag == '+' && (int)x >= 0)
-				list->widthofline++;
-		}
 	}
 	if (list->presicion < ft_len_of_int(x) - 1)
 		list->widthofcontent = ft_len_of_int(x);
 	else
 		list->widthofcontent = list->presicion;
 	if (list->flag == '+' && (int)x >= 0)
+	{
+		list->widthofline++;
 		list->widthofcontent++;
+	}
 	if (list->presicion > ft_len_of_int(x) - 1)
 		presicion_over_len(list, x);
 	else if ((list->flag == '-') && (list->width > list->widthofcontent))
