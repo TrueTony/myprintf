@@ -13,14 +13,14 @@ void	fF_print_with_minus(t_printf *list, double x)
 					list->widthofcontent--;
 			}
 			handling_float(x, 15, 52);
-			list->widthofline -= ft_len_of_double(x);
-			list->widthofcontent -= ft_len_of_double(x);
+			list->widthofline -= ft_len_of_int(x) + list->presicion + 1;
+			list->widthofcontent -= ft_len_of_int(x) + list->presicion + 1;
 		}
 		ft_putchar(' ');
 		list->widthofline--;
 	}
 }
-
+/*
 void	fF_presicion_over_len(t_printf *list, double x)
 {
 	if (list->flag == '+' && (int)x >= 0)
@@ -42,7 +42,7 @@ void	fF_presicion_over_len(t_printf *list, double x)
 	}
 	handling_float(x, 15, 52);
 }
-
+*/
 void	fF_print_without_minus(t_printf *list, double x)
 {
 	while (list->widthofline > list->widthofcontent)
@@ -74,26 +74,28 @@ void	fF_print_without_minus(t_printf *list, double x)
 
 void	type_f_and_F(t_printf *list, double x)
 {
-	list->presicion = 6;
-	if (list->width > ft_len_of_double(x))
+	if (list->width > ft_len_of_int(x) + list->presicion + 1)
 		list->widthofline = list->width;
 	else
-		if (list->presicion < ft_len_of_double(x) && list->presicion > 0)
-			list->widthofline = list->presicion;
-		else
-		{
-			list->widthofline = ft_len_of_double(x);
-			if (list->flag == '+' && (int)x >= 0)
-				list->widthofline++;
-		}
-	if (list->presicion < ft_len_of_double(x) - 1)
-		list->widthofcontent = ft_len_of_double(x);
-	else
-		list->widthofcontent = list->presicion;
+	{
+		//if (list->presicion < ft_len_of_double(x) && list->presicion > 0)
+		//	list->widthofline = list->presicion;
+		//else
+		//{
+		list->widthofline = ft_len_of_int(x) + list->presicion + 1;
+		if (list->flag == '+' && (int)x >= 0)
+			list->widthofline++;
+		//}
+	}
+	//if (list->presicion < ft_len_of_double(x) - 1)
+	//	list->widthofcontent = ft_len_of_double(x);
+	//else
+	//	list->widthofcontent = list->presicion;
+	list->widthofcontent = ft_len_of_int(x) + list->presicion + 1;
 	if (list->flag == '+' && (int)x >= 0)
 		list->widthofcontent++;
-	if (list->presicion > ft_len_of_double(x) - 1)
-		fF_presicion_over_len(list, x);
+	//if (list->presicion > ft_len_of_double(x) - 1)
+	//	fF_presicion_over_len(list, x);
 	else if ((list->flag == '-') && (list->width > list->widthofcontent))
 		fF_print_with_minus(list, x);
 	else

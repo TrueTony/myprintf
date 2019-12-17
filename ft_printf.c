@@ -58,9 +58,9 @@ void		ft_printf(char *format, ...)
 				lx = va_arg(ap, long long);
 				type_x_and_X(list, lx);
 			}
-			else if (list->type == 'f')
+			else if (list->type == 'f' || list->type == 'F')
 			{
-				fx = va_arg(ap, long long);
+				fx = va_arg(ap, double);
 				type_f_and_F(list, fx);
 			}
 		}

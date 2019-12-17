@@ -48,10 +48,12 @@ void	str(t_printf *list, char *str)
 	if (list->width > ft_strlen(str))
 		list->widthofline = list->width;
 	else
+	{
 		if (list->presicion < ft_strlen(str) && list->presicion > 0)
 			list->widthofline = list->presicion;
 		else
 			list->widthofline = ft_strlen(str);
+	}
 	if (list->presicion < ft_strlen(str) && list->presicion > 0)
 		list->widthofcontent = list->presicion;
 	else

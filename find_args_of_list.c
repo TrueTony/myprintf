@@ -53,6 +53,8 @@ char	*presicion(char *format, t_printf *list)
 {
 	int num;
 
+	if (ft_strchr(format, 'f') || ft_strchr(format, 'F'))
+		list->presicion = 6;
 	if (*format == '.')
 	{
 		format++;

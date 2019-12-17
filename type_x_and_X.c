@@ -59,10 +59,12 @@ void	type_x_and_X(t_printf *list, long long x)
 	if (list->width > lennum_base(x, list->base))
 		list->widthofline = list->width;
 	else
+	{
 		if (list->presicion < lennum_base(x, list->base) && list->presicion > 0)
 			list->widthofline = list->presicion;
 		else
 			list->widthofline = lennum_base(x, list->base);
+	}
 	if (list->presicion < lennum_base(x, list->base) - 1)
 		list->widthofcontent = lennum_base(x, list->base);
 	else
