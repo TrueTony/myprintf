@@ -48,7 +48,7 @@ void			x_print_without_minus(t_printf *list, long long x);
 void			x_presicion_over_len(t_printf *list, long long x);
 void			x_print_with_minus(t_printf *list, long long x);
 
-char			*adv_ft_itoa(int n, int base, char c);
+char			*adv_ft_itoa(long long n, int base, char c);
 size_t			lennum_base(int n, int base);
 
 #endif

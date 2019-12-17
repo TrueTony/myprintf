@@ -1,23 +1,5 @@
 #include "printf.h"
 
-size_t	ft_len_of_double(double i)
-{
-	size_t	res;
-
-	res = 1;
-	if ((int)i < 0)
-	{
-		i *= -1;
-		res++;
-	}
-	while ((int)i > 10)
-	{
-		res++;
-		i /=10;
-	}
-	return (res + 6);
-}
-
 void	fF_print_with_minus(t_printf *list, double x)
 {
 	while (list->widthofline > 0)
@@ -92,6 +74,7 @@ void	fF_print_without_minus(t_printf *list, double x)
 
 void	type_f_and_F(t_printf *list, double x)
 {
+	list->presicion = 6;
 	if (list->width > ft_len_of_double(x))
 		list->widthofline = list->width;
 	else

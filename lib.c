@@ -108,7 +108,7 @@ int							ft_atoi(const char *str)
 	return (((int)res) * sign);
 }
 
-int		lennum(int n)
+int		lennum(long long n)
 {
 	int	i;
 
@@ -190,3 +190,69 @@ char			*ft_itoa(int n)
 	return (res);
 }
 
+double ft_pow_float(int a, int b)
+{
+    int i;
+    float res;
+
+    i = a;
+    res = a;
+    if (b == 0)
+        return (1.0);
+	if (b == 1)
+		return (a);
+    if (b > 0)
+    {
+        b--;
+        while (b--)
+            res = res * i;
+    }
+    else
+        res = 1 / ft_pow_float(a, b * -1);
+    return (res);
+}
+
+void	subst(unsigned long long *arr, int i, unsigned long long num, int end)
+{
+	unsigned long long x;
+	unsigned long long res;
+
+	x = 10000000000;
+	if (num / x > 0)
+    {
+		subst(arr, i - 1, num / x, end);
+        num = num % x;
+    }
+	res = arr[i] - num;
+	if (arr[i] < num)
+	{
+		if (i < end)
+			subst(arr, i + 1, 1, end);
+		arr[i] = x - res;
+	}
+	else
+		arr[i] = res;
+}
+
+void	divis(unsigned long long *arr, int i, int num)
+{
+	unsigned long long res;
+	unsigned long long cell;
+	unsigned long long x;
+	int end;
+
+	x = 10000000000;
+	end = i;
+	res = 0;
+	i = 0;
+	while (arr[i] == 0 && i < end)
+		i++;
+	cell = arr[i];
+	while (i <= end)
+	{
+		res = (cell / num);
+		cell = ((arr[i] % num) * x) + arr[i + 1];
+		arr[i] = res;
+		i++;
+	}
+}

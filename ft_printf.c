@@ -20,7 +20,7 @@ void		ft_printf(char *format, ...)
 	//int				x;
 	unsigned	int ux;
 	long long		lx;
-	//float			fx;
+	float			fx;
 	char			*s;
 
 	//x = 0;
@@ -57,6 +57,11 @@ void		ft_printf(char *format, ...)
 			{
 				lx = va_arg(ap, long long);
 				type_x_and_X(list, lx);
+			}
+			else if (list->type == 'f')
+			{
+				fx = va_arg(ap, long long);
+				type_f_and_F(list, lx);
 			}
 		}
 		else

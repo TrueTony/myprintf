@@ -28,7 +28,7 @@ char			size_of_letter(char c)
 	return ('A');
 }
 
-char			*adv_ft_itoa(int n, int base, char c)
+char			*adv_ft_itoa(long long n, int base, char c)
 {
 	char	*res;
 	size_t	len;
@@ -40,8 +40,6 @@ char			*adv_ft_itoa(int n, int base, char c)
 		return ("");
 	if (n == 0)
 		return (nole());
-	if (n == -2147483648)
-		return (minimum());
 	if (!(res = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	res[len--] = '\0';

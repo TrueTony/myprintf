@@ -144,6 +144,11 @@ int		main(void)
 	printf(":%+12f:\n", y);
 	printf(":%-12f:\n", y);
 	printf(":%012f:\n", y);
+	printf(":%4f:\n", y);
+	printf(":%.f:\n", y);
+	printf(":%.0f:\n", y);
+	printf(":%4.5f:\n", y);
+	printf(":%.7f:\n", y);
 /*
 	printf(":%.1f:\n", y);
 	printf(":%.2f:\n", y);
@@ -151,7 +156,7 @@ int		main(void)
 	printf(":%.5f:\n", y);
 	printf(":%+.5f:\n", y);
 	printf(":%.12f:\n", y);
-*/
+
 	printf("\n");
 	ft_printf(":%f:\n", y);
 	ft_printf(":%12f:\n", y);
@@ -159,5 +164,6 @@ int		main(void)
 	ft_printf(":%+12f:\n", y);
 	ft_printf(":%-12f:\n", y);
 	ft_printf(":%012f:\n", y);
+*/
 	return (0);
 }
