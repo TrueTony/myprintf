@@ -5,7 +5,10 @@ int		main(void)
 	//char c = 'Z';
 	//char c2 = 'Z';
 	//int	x = 230;
-	float	y = 67890.1234567;
+	//float	y = 67890.1234567;
+	float	y = 0.123456789;
+	//float y = 0;
+	//float y = 123456789123456789;
 	//char *str = "hello, world";
 /*
 	printf(":%c:\n", c);
@@ -139,6 +142,7 @@ int		main(void)
 */
 
 	printf(":%f:\n", y);
+	/*
 	printf(":%15f:\n", y);
 	printf(":%+f:\n", y);
 	printf(":%+15f:\n", y);
@@ -156,9 +160,11 @@ int		main(void)
 	printf(":%.5f:\n", y);
 	printf(":%+.5f:\n", y);
 	printf(":%.12f:\n", y);
-
+*/
 	printf("\n");
+
 	ft_printf(":%f:\n", y);
+		/*
 	ft_printf(":%15f:\n", y);
 	ft_printf(":%+f:\n", y);
 	ft_printf(":%+15f:\n", y);
@@ -176,7 +182,29 @@ int		main(void)
 	ft_printf(":%.5f:\n", y);
 	ft_printf(":%+.5f:\n", y);
 	ft_printf(":%.12f:\n", y);
+*/
+/*
+	printf(":%a:\n", y);
+	printf(":%15a:\n", y);
+	printf(":%+a:\n", y);
+	printf(":%+15a:\n", y);
+	printf(":%-15a:\n", y);
+	printf(":%015a:\n", y);
+	printf(":%4a:\n", y);
+	printf(":%.a:\n", y);
+	printf(":%.0a:\n", y);
+	printf(":%4.5a:\n", y);
+	printf(":%.7a:\n", y);
 
+	printf(":%.1a:\n", y);
+	printf(":%.2a:\n", y);
+	printf(":%.3a:\n", y);
+	printf(":%.5a:\n", y);
+	printf(":%+.5a:\n", y);
+	printf(":%.12a:\n", y);
+
+	printf("\n");
+*/
 
 	return (0);
 }

@@ -81,9 +81,19 @@ int		handling_float(double d, int countofel, int pow, int p)
 	int i;
 	char *tmp;
 	int n;
+	int iszero;
 
+	iszero = 0;
+	printf("m:%llu\n", d1.part.m);
+	printf("d:%f\n", d);
 	n = 98;
 	i = 0;
+	if ((int)d == 0)
+	{
+		d += 1;
+		iszero = 1;
+	}
+	printf("d:%f\n", d);
 	d1.d = d;
 	arr = (unsigned long long*)malloc(sizeof(unsigned long long) * countofel);
     while (i < countofel)
@@ -91,6 +101,7 @@ int		handling_float(double d, int countofel, int pow, int p)
         arr[i] = 0;
         i++;
     }
+	//printf("\ntest\n");
 	addit(arr, countofel - 1, d1.part.m);
 	while (pow)
 	{
@@ -99,25 +110,60 @@ int		handling_float(double d, int countofel, int pow, int p)
 	}
 	addit(arr, 9, 100);
 	pow = d1.part.e - 1023;
+	printf("pow:%d\n", pow);
 	while (pow)
 	{
 		mult(arr, 0, 2, countofel);
 		pow--;
 	}
+	/*
+	int j;
 	i = 0;
-	while (arr[i] == 0 || n > 10)
+	while (i < countofel)
+    {
+		j = lennum(arr[i]);
+		while (j < 10)
+		{
+			printf("0");
+			j++;
+		}
+        printf("%I64d", arr[i]);
+        i++;
+    }
+	printf("\n");
+	*/
+	i = 0;
+	while (arr[i] == 0 && n > 10)
 	{
 		i++;
 		n -= 10;
 	}
+	//printf("n:%d\n", n);
 	tmp = full_str(adv_ft_itoa(arr[i], 10, 'a'));
+	//printf("tmp:%s\n", tmp);
 	while (*tmp == '0')
 	{
 		tmp++;
 		n--;
 	}
-	while (n--)
-		ft_putchar(*tmp++);
+	if (iszero)
+	{
+		ft_putchar('0');
+		n--;
+		tmp++;
+	}
+	//printf("%s\n", tmp);
+	while (n)
+		if (*tmp)
+		{
+			ft_putchar(*tmp++);
+			n--;
+		}
+		else
+		{
+			i++;
+			tmp = full_str(adv_ft_itoa(arr[i], 10, 'a'));
+		}
 	if (p)
 		ft_putchar('.');
 	while (p)
