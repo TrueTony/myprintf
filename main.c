@@ -210,6 +210,9 @@ int		main(void)
 	//printf("This is a simple test.");
 	//printf("\n");
 	//ft_printf("This is a simple test.");
+	printf("%#x", 0);
+	printf("\n");
+	cow = ft_printf("%#x", 0);
 	printf("\ncow:%d\n", cow);
 	return (0);
 }

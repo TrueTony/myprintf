@@ -18,6 +18,18 @@ void	ft_putchar_cow(char c, t_printf *list)
 	list->cow++;
 }
 
+void	ft_putstr_cow(char const *s, t_printf *list)
+{
+	size_t i;
+
+	i = 0;
+	if (s == NULL)
+		return ;
+	i = ft_strlen(s);
+	write(1, s, i);
+	list->cow += i;
+}
+
 int		ft_printf(char *format, ...)
 {
 	t_printf	*list;
@@ -69,6 +81,11 @@ int		ft_printf(char *format, ...)
 				fx = va_arg(ap, double);
 				type_f_and_F(list, fx);
 			}
+			else if (*format == '%')
+			{
+				ft_putchar(*format);
+				cow++;
+			}
 			cow += list->cow;
 		}
 		else
@@ -80,5 +97,5 @@ int		ft_printf(char *format, ...)
 	}
 	//printf("%c %i %i %s %c", list->flag, list->width, list->presicion, list->length, list->type);
 	va_end (ap);
-	return (cow-1);
+	return (cow);
 }

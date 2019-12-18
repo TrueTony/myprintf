@@ -30,7 +30,7 @@ void	di_print_with_minus(t_printf *list, long long x)
 					list->widthofline--;
 					list->widthofcontent--;
 			}
-			ft_putstr(ft_itoa(x));
+			ft_putstr_cow(ft_itoa(x), list);
 			list->widthofline -= ft_len_of_int(x);
 			list->widthofcontent -= ft_len_of_int(x);
 		}
@@ -58,7 +58,7 @@ void	presicion_over_len(t_printf *list, long long x)
 		ft_putchar_cow('0', list);
 		list->widthofcontent--;
 	}
-	ft_putstr(ft_itoa(x));
+	ft_putstr_cow(ft_itoa(x), list);
 }
 
 void	di_print_without_minus(t_printf *list, long long x)
@@ -86,7 +86,7 @@ void	di_print_without_minus(t_printf *list, long long x)
 		list->widthofline--;
 		list->widthofcontent--;
 	}
-	ft_putstr(ft_itoa(x));
+	ft_putstr_cow(ft_itoa(x), list);
 
 }
 

@@ -6,7 +6,7 @@ void	x_print_with_minus(t_printf *list, long long x)
 	{
 		while (list->widthofcontent)
 		{
-			ft_putstr(adv_ft_itoa(x, list->base, list->type));
+			ft_putstr_cow(adv_ft_itoa(x, list->base, list->type), list);
 			list->widthofline -= lennum_base(x, list->base);
 			list->widthofcontent -= lennum_base(x, list->base);
 		}
@@ -28,7 +28,7 @@ void	x_presicion_over_len(t_printf *list, long long x)
 		ft_putchar_cow('0', list);
 		list->widthofcontent--;
 	}
-	ft_putstr(adv_ft_itoa(x, list->base, list->type));
+	ft_putstr_cow(adv_ft_itoa(x, list->base, list->type), list);
 }
 
 void	x_print_without_minus(t_printf *list, long long x)
@@ -50,12 +50,17 @@ void	x_print_without_minus(t_printf *list, long long x)
 			ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
-	ft_putstr(adv_ft_itoa(x, list->base, list->type));
+	ft_putstr_cow(adv_ft_itoa(x, list->base, list->type), list);
 
 }
 
 void	type_x_and_X(t_printf *list, long long x)
 {
+	if (x == 4294967296)
+	{
+		ft_putchar_cow('0', list);
+		return ;
+	}
 	if (list->width > lennum_base(x, list->base))
 		list->widthofline = list->width;
 	else
@@ -65,7 +70,7 @@ void	type_x_and_X(t_printf *list, long long x)
 		else
 			list->widthofline = lennum_base(x, list->base);
 	}
-	if (list->presicion < lennum_base(x, list->base) - 1)
+	if (list->presicion < lennum_base(x, list->base))
 		list->widthofcontent = lennum_base(x, list->base);
 	else
 		list->widthofcontent = list->presicion;

@@ -55,5 +55,6 @@ void			type_f_and_F(t_printf *list, double x);
 int				handling_float(double d, int countofel, int pow, int p, t_printf *list);
 char			*nole(void);
 void			ft_putchar_cow(char c, t_printf *list);
+void			ft_putstr_cow(char const *s, t_printf *list);
 
 #endif

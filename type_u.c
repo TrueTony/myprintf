@@ -6,7 +6,7 @@ void	u_print_with_minus(t_printf *list, long long x)
 	{
 		while (list->widthofcontent)
 		{
-			ft_putstr(ft_itoa(x));
+			ft_putstr_cow(ft_itoa(x), list);
 			list->widthofline -= ft_len_of_int(x);
 			list->widthofcontent -= ft_len_of_int(x);
 		}
@@ -28,7 +28,7 @@ void	u_presicion_over_len(t_printf *list, long long x)
 		ft_putchar_cow('0', list);
 		list->widthofcontent--;
 	}
-	ft_putstr(ft_itoa(x));
+	ft_putstr_cow(ft_itoa(x), list);
 }
 
 void	u_print_without_minus(t_printf *list, long long x)
@@ -50,14 +50,14 @@ void	u_print_without_minus(t_printf *list, long long x)
 			ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
-	ft_putstr(ft_itoa(x));
+	ft_putstr_cow(ft_itoa(x), list);
 
 }
 
 void	type_u(t_printf *list, long long x)
 {
 	if ((int)x < 0)
-		ft_putstr("4294967269");
+		ft_putstr_cow("4294967269", list);
 	else
 	{
 		if (list->width > ft_len_of_int(x))
