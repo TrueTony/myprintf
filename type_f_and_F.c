@@ -8,15 +8,15 @@ void	fF_print_with_minus(t_printf *list, double x)
 		{
 			if (list->flag == '+' && (int)x >= 0)
 			{
-					ft_putchar('+');
+					ft_putchar_cow('+', list);
 					list->widthofline--;
 					list->widthofcontent--;
 			}
-			handling_float(x, 15, 52, list->presicion);
+			handling_float(x, 15, 52, list->presicion, list);
 			list->widthofline -= ft_len_of_int(x) + list->presicion + 1;
 			list->widthofcontent -= ft_len_of_int(x) + list->presicion + 1;
 		}
-		ft_putchar(' ');
+		ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
 }
@@ -29,24 +29,24 @@ void	fF_print_without_minus(t_printf *list, double x)
 		{
 			if ((int)x < 0)
 			{
-				ft_putchar('-');
+				ft_putchar_cow('-', list);
 				x *= -1;
 				list->widthofcontent--;
 				list->widthofline--;
 			}
-			ft_putchar('0');
+			ft_putchar_cow('0', list);
 		}
 		else
-			ft_putchar(' ');
+			ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
 	if (list->flag == '+' && (int)x >= 0)
 	{
-		ft_putchar('+');
+		ft_putchar_cow('+', list);
 		list->widthofline--;
 		list->widthofcontent--;
 	}
-	handling_float(x, 15, 52, list->presicion);
+	handling_float(x, 15, 52, list->presicion, list);
 
 }
 

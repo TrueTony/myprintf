@@ -165,7 +165,7 @@ char	*minimum(void)
 	return (res);
 }
 
-char	*nole(void)
+char	*nole_tmp(void)
 {
 	char	*res;
 
@@ -192,7 +192,7 @@ char			*ft_itoa(int n)
 	if (!res)
 		return (NULL);
 	if (n == 0)
-		return (nole());
+		return (nole_tmp());
 	res[len--] = '\0';
 	if (n < 0)
 		res[0] = '-';

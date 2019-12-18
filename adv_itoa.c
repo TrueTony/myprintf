@@ -26,6 +26,18 @@ char			size_of_letter(char c)
 	return ('A');
 }
 
+char	*nole(void)
+{
+	char	*res;
+
+	res = (char*)malloc(sizeof(char) * 2);
+	if (!res)
+		return (NULL);
+	res[0] = '0';
+	res[1] = '\0';
+	return (res);
+}
+
 char			*adv_ft_itoa(long long n, int base, char c)
 {
 	char	*res;

@@ -2,6 +2,7 @@
 a.out
 a.out.dSYM
 a.exe
+libprintf.a
 /.vscode
 printf.h.gch
 ttt.c

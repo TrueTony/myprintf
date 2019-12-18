@@ -10,7 +10,7 @@ void	x_print_with_minus(t_printf *list, long long x)
 			list->widthofline -= lennum_base(x, list->base);
 			list->widthofcontent -= lennum_base(x, list->base);
 		}
-		ft_putchar(' ');
+		ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
 }
@@ -19,13 +19,13 @@ void	x_presicion_over_len(t_printf *list, long long x)
 {
 	if ((int)x < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_cow('-', list);
 		x *= -1;
 		list->widthofline--;
 	}
 	while (list->widthofcontent > list->widthofline)
 	{
-		ft_putchar('0');
+		ft_putchar_cow('0', list);
 		list->widthofcontent--;
 	}
 	ft_putstr(adv_ft_itoa(x, list->base, list->type));
@@ -39,15 +39,15 @@ void	x_print_without_minus(t_printf *list, long long x)
 		{
 			if ((int)x < 0)
 			{
-				ft_putchar('-');
+				ft_putchar_cow('-', list);
 				x *= -1;
 				list->widthofcontent--;
 				list->widthofline--;
 			}
-			ft_putchar('0');
+			ft_putchar_cow('0', list);
 		}
 		else
-			ft_putchar(' ');
+			ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
 	ft_putstr(adv_ft_itoa(x, list->base, list->type));

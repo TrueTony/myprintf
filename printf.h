@@ -18,9 +18,10 @@ typedef	struct 	s_printf
 	size_t		widthofline;
 	size_t		widthofcontent;
 	size_t		base;
+	int			cow;
 }				t_printf;
 
-void			ft_printf(char *format, ...);
+int				ft_printf(char *format, ...);
 t_printf		*newlist_with_printf();
 char			*flag(char *format, t_printf *list);
 char			*width(char *format, t_printf *list);
@@ -51,7 +52,8 @@ void			x_print_with_minus(t_printf *list, long long x);
 char			*adv_ft_itoa(long long n, int base, char c);
 size_t			lennum_base(long long n, int base);
 void			type_f_and_F(t_printf *list, double x);
-int				handling_float(double d, int countofel, int pow, int p);
+int				handling_float(double d, int countofel, int pow, int p, t_printf *list);
 char			*nole(void);
+void			ft_putchar_cow(char c, t_printf *list);
 
 #endif

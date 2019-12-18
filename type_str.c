@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 14:34:15 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/23 16:28:38 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:22:37 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	str_print_with_minus(t_printf *list, char *str)
 	{
 		while (list->widthofcontent)
 		{
-			ft_putchar(*str);
+			ft_putchar_cow(*str, list);
 			str++;
 			list->widthofline--;
 			list->widthofcontent--;
 		}
-		ft_putchar(' ');
+		ft_putchar_cow(' ', list);
 		list->widthofline--;
 	}
 }
@@ -34,10 +34,10 @@ void	str_print_without_minus(t_printf *list, char *str)
 	{
 		while (list->widthofline > list->widthofcontent)
 		{
-			ft_putchar(' ');
+			ft_putchar_cow(' ', list);
 			list->widthofline--;
 		}
-		ft_putchar(*str);
+		ft_putchar_cow(*str, list);
 		str++;
 		list->widthofline--;
 	}

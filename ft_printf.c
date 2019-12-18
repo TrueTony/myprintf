@@ -6,24 +6,30 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 16:45:26 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/11/23 15:44:56 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:36:44 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void		ft_printf(char *format, ...)
+void	ft_putchar_cow(char c, t_printf *list)
+{
+	write(1, &c, 1);
+	list->cow++;
+}
+
+int		ft_printf(char *format, ...)
 {
 	t_printf	*list;
 	va_list	ap;
 	va_start(ap, format);
-	//int				x;
 	unsigned	int ux;
 	long long		lx;
 	float			fx;
 	char			*s;
+	int				cow;
 
-	//x = 0;
+	cow = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -63,11 +69,16 @@ void		ft_printf(char *format, ...)
 				fx = va_arg(ap, double);
 				type_f_and_F(list, fx);
 			}
+			cow += list->cow;
 		}
 		else
+		{
 			ft_putchar(*format);
+			cow++;
+		}
 		format++;
 	}
 	//printf("%c %i %i %s %c", list->flag, list->width, list->presicion, list->length, list->type);
-	//va_end (ap);
+	va_end (ap);
+	return (cow-1);
 }

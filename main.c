@@ -2,14 +2,16 @@
 
 int		main(void)
 {
+	int cow = 0;
 	//char c = 'Z';
 	//char c2 = 'Z';
 	//int	x = 230;
 	//float	y = 67890.1234567;
-	float	y = 0.123456789;
+	//float	y = 1.123456789;
 	//float y = 0;
 	//float y = 123456789123456789;
 	//char *str = "hello, world";
+
 /*
 	printf(":%c:\n", c);
 	printf(":%3c:\n", c);
@@ -141,8 +143,8 @@ int		main(void)
 	ft_printf(":%.5o:\n", x);
 */
 
-	printf(":%f:\n", y);
-	/*
+	//printf(":%f:\n", y);
+/*
 	printf(":%15f:\n", y);
 	printf(":%+f:\n", y);
 	printf(":%+15f:\n", y);
@@ -160,11 +162,10 @@ int		main(void)
 	printf(":%.5f:\n", y);
 	printf(":%+.5f:\n", y);
 	printf(":%.12f:\n", y);
-*/
+
 	printf("\n");
 
 	ft_printf(":%f:\n", y);
-		/*
 	ft_printf(":%15f:\n", y);
 	ft_printf(":%+f:\n", y);
 	ft_printf(":%+15f:\n", y);
@@ -175,7 +176,6 @@ int		main(void)
 	ft_printf(":%.0f:\n", y);
 	ft_printf(":%4.5f:\n", y);
 	ft_printf(":%.7f:\n", y);
-
 	ft_printf(":%.1f:\n", y);
 	ft_printf(":%.2f:\n", y);
 	ft_printf(":%.3f:\n", y);
@@ -206,5 +206,10 @@ int		main(void)
 	printf("\n");
 */
 
+
+	//printf("This is a simple test.");
+	//printf("\n");
+	//ft_printf("This is a simple test.");
+	printf("\ncow:%d\n", cow);
 	return (0);
 }
