@@ -66,11 +66,7 @@ char	*presicion(char *format, t_printf *list)
 			format++;
 	}
 	else
-	{
-		list->presicion = 0;
-		if (ft_strchr(format, 'f') || ft_strchr(format, 'F'))
-			list->presicion = 6;
-	}
+		list->np = 'y';
 	return (length(format, list));
 }
 
@@ -121,5 +117,7 @@ char	*type(char *format, t_printf *list)
 		list->base = 16;
 	if (format[0] == 'o')
 		list->base = 8;
+	if (list->np == 'y' && (list->type == 'f' || list->type == 'F'))
+		list->presicion = 6;
 	return (format);
 }

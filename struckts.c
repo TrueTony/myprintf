@@ -26,5 +26,6 @@ t_printf	*newlist_with_printf()
 	list->widthofcontent = 0;
 	list->base = 10;
 	list->cow = 0;
+	list->np = 'n';
 	return (list);
 }

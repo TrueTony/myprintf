@@ -3,6 +3,7 @@
 int		main(void)
 {
 	int cow = 0;
+	int cow2 = 0;
 	//char c = 'Z';
 	//char c2 = 'Z';
 	//int	x = 230;
@@ -54,6 +55,7 @@ int		main(void)
 	printf(":%d:\n", x);
 	printf(":%5d:\n", x);
 	printf(":%+d:\n", x);
+	printf(":%+4d:\n", x);
 	printf(":%+5d:\n", x);
 	printf(":%-5d:\n", x);
 	printf(":%05d:\n", x);
@@ -69,6 +71,7 @@ int		main(void)
 	ft_printf(":%d:\n", x);
 	ft_printf(":%5d:\n", x);
 	ft_printf(":%+d:\n", x);
+	ft_printf(":%+4d:\n", x);
 	ft_printf(":%+5d:\n", x);
 	ft_printf(":%-5d:\n", x);
 	ft_printf(":%05d:\n", x);
@@ -142,9 +145,8 @@ int		main(void)
 	ft_printf(":%.3o:\n", x);
 	ft_printf(":%.5o:\n", x);
 */
-
-	//printf(":%f:\n", y);
 /*
+	printf(":%f:\n", y);
 	printf(":%15f:\n", y);
 	printf(":%+f:\n", y);
 	printf(":%+15f:\n", y);
@@ -210,9 +212,9 @@ int		main(void)
 	//printf("This is a simple test.");
 	//printf("\n");
 	//ft_printf("This is a simple test.");
-	printf("%#x", 0);
+	cow = printf("%15.4d", -42);
 	printf("\n");
-	cow = ft_printf("%#x", 0);
-	printf("\ncow:%d\n", cow);
+	cow2 = ft_printf("%15.4d", -42);
+	printf("\ncow :%d\ncow2:%d\n", cow, cow2);
 	return (0);
 }

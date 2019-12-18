@@ -69,7 +69,7 @@ void	type_u(t_printf *list, long long x)
 			else
 				list->widthofline = ft_len_of_int(x);
 		}
-		if (list->presicion < ft_len_of_int(x) - 1)
+		if (list->presicion < ft_len_of_int(x))
 			list->widthofcontent = ft_len_of_int(x);
 		else
 			list->widthofcontent = list->presicion;

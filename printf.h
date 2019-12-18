@@ -19,6 +19,7 @@ typedef	struct 	s_printf
 	size_t		widthofcontent;
 	size_t		base;
 	int			cow;
+	char		np;
 }				t_printf;
 
 int				ft_printf(char *format, ...);

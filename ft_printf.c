@@ -59,7 +59,10 @@ int		ft_printf(char *format, ...)
 			else if (list->type == 's' || list->type == 'S')
 			{
 				s = va_arg(ap, char*);
-				str(list, s);
+				if (s == 0)
+					ft_putstr_cow("(null)", list);
+				else
+					str(list, s);
 			}
 			else if (list->type == 'd' || list->type == 'i')
 			{
