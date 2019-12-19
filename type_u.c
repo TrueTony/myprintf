@@ -56,7 +56,7 @@ void	u_print_without_minus(t_printf *list, long long x)
 
 void	type_u(t_printf *list, long long x)
 {
-	if ((int)x < 0)
+	if (x < 0)
 		ft_putstr_cow("4294967269", list);
 	else
 	{

@@ -56,11 +56,20 @@ void	x_print_without_minus(t_printf *list, long long x)
 void	sharp_u_x(t_printf *list)
 {
 	if (list->flag == '#' && list->type == 'o')
+	{
 		ft_putchar_cow('0', list);
+		list->widthofline--;
+	}
 	else if (list->flag == '#' && list->type == 'x')
+	{
 		ft_putstr_cow("0x", list);
+		list->widthofline -= 2;
+	}
 	else if (list->flag == '#' && list->type == 'X')
+	{
 		ft_putstr_cow("0X", list);
+		list->widthofline -= 2;
+	}
 }
 
 void	type_x_and_X(t_printf *list, long long x)
@@ -70,8 +79,6 @@ void	type_x_and_X(t_printf *list, long long x)
 		ft_putchar_cow('0', list);
 		return ;
 	}
-	if (list->flag == '#' && x > 0)
-		sharp_u_x(list);
 	if (list->width > lennum_base(x, list->base))
 		list->widthofline = list->width;
 	else
@@ -85,6 +92,8 @@ void	type_x_and_X(t_printf *list, long long x)
 		list->widthofcontent = lennum_base(x, list->base);
 	else
 		list->widthofcontent = list->presicion;
+	if (list->flag == '#' && x > 0)
+		sharp_u_x(list);
 	if (list->presicion > lennum_base(x, list->base) - 1)
 		x_presicion_over_len(list, x);
 	else if ((list->flag == '-') && (list->width > list->widthofcontent))
