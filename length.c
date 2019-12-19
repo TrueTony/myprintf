@@ -1,15 +1,24 @@
 #include "printf.h"
 
-void change_length_di(t_printf *list, long long x)
+int		ft_strcmp(const char *s1, const char *s2);
+
+long change_length_di(t_printf *list, long long x)
 {
-	if (list->length == "hh")
-		x = (signed char)x;
-	else if (list->length == "h")
-		x = (short)x;
-	else if (list->length == "l")
+	printf("%s\n", list->length);
+	if (!ft_strcmp(list->length, "hh"))
+		return (signed char)x;
+	else if (!ft_strcmp(list->length, "h"))
+		return (short)x;
+	else if (!ft_strcmp(list->length, "l"))
+	{
 		x = (long)x;
-	else if (list->length == "ll")
-		x = (long long)x;
+		printf("in: %ld\n", x);
+		return (long)x;
+	}
+	else if (!ft_strcmp(list->length, "ll"))
+	{
+		return (long long)x;
+	}
 }
 
 void change_length_u_x(t_printf *list, long long x)

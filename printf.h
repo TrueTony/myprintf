@@ -70,5 +70,8 @@ void			ft_putchar_cow(char c, t_printf *list);
 void			ft_putstr_cow(char const *s, t_printf *list);
 void			addit(unsigned long long *arr, int i, unsigned long long num);
 void			mult(unsigned long long *arr, int i, int num, int end);
+long 			change_length_di(t_printf *list, long long x);
+void 			change_length_u_x(t_printf *list, long long x);
+void 			change_length_f_e_a_g(t_printf *list, double x);
 
 #endif

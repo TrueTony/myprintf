@@ -67,6 +67,11 @@ int		ft_printf(char *format, ...)
 			else if (list->type == 'd' || list->type == 'i')
 			{
 				lx = va_arg(ap, long long);
+				if (ft_strcmp(list->length, "Q"))
+				{
+					lx = change_length_di(list, lx);
+					printf("after:%ld\n", lx);
+				}
 				d_and_i(list, lx);
 			}
 			else if (list->type == 'u')

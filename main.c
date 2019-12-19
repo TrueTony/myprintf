@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <limits.h>
 
 int		main(void)
 {
@@ -212,9 +213,9 @@ int		main(void)
 	//printf("This is a simple test.");
 	//printf("\n");
 	//ft_printf("This is a simple test.");
-	cow = printf("%15.4d", -42);
+	cow = printf("%ld", (long)INT_MAX + 1);
 	printf("\n");
-	cow2 = ft_printf("%15.4d", -42);
+	cow2 = ft_printf("%ld", (long)INT_MAX + 1);
 	printf("\ncow :%d\ncow2:%d\n", cow, cow2);
 	return (0);
 }
