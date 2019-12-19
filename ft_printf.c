@@ -6,7 +6,7 @@
 /*   By: ksenaida <ksenaida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 16:45:26 by ksenaida          #+#    #+#             */
-/*   Updated: 2019/12/18 19:36:44 by ksenaida         ###   ########.fr       */
+/*   Updated: 2019/12/19 21:38:14 by ksenaida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf(char *format, ...)
 	va_start(ap, format);
 	unsigned	int ux;
 	long long		lx;
-	float			fx;
+	double			fx;
 	char			*s;
 	int				cow;
 
