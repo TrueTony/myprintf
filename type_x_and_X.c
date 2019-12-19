@@ -51,7 +51,16 @@ void	x_print_without_minus(t_printf *list, long long x)
 		list->widthofline--;
 	}
 	ft_putstr_cow(adv_ft_itoa(x, list->base, list->type), list);
+}
 
+void	sharp_u_x(t_printf *list)
+{
+	if (list->flag == '#' && list->type == 'o')
+		ft_putchar_cow('0', list);
+	else if (list->flag == '#' && list->type == 'x')
+		ft_putstr_cow("0x", list);
+	else if (list->flag == '#' && list->type == 'X')
+		ft_putstr_cow("0X", list);
 }
 
 void	type_x_and_X(t_printf *list, long long x)
@@ -61,6 +70,8 @@ void	type_x_and_X(t_printf *list, long long x)
 		ft_putchar_cow('0', list);
 		return ;
 	}
+	if (list->flag == '#' && x > 0)
+		sharp_u_x(list);
 	if (list->width > lennum_base(x, list->base))
 		list->widthofline = list->width;
 	else
