@@ -22,6 +22,17 @@ typedef	struct 	s_printf
 	char		np;
 }				t_printf;
 
+typedef union 	s_double
+{
+	double d;
+	struct
+	{
+		unsigned long long m: 52;
+		unsigned long long e: 11;
+		unsigned long long s: 1;
+	}			part;
+}				t_double;
+
 int				ft_printf(char *format, ...);
 t_printf		*newlist_with_printf();
 char			*flag(char *format, t_printf *list);
@@ -57,5 +68,7 @@ int				handling_float(double d, int countofel, int pow, int p, t_printf *list);
 char			*nole(void);
 void			ft_putchar_cow(char c, t_printf *list);
 void			ft_putstr_cow(char const *s, t_printf *list);
+void			addit(unsigned long long *arr, int i, unsigned long long num);
+void			mult(unsigned long long *arr, int i, int num, int end);
 
 #endif
